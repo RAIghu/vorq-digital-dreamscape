@@ -62,7 +62,7 @@ const Contact = () => {
                 <h3 className="font-orbitron font-bold text-xl mb-6 text-white">Follow Our Journey</h3>
                 
                 <div className="flex space-x-4">
-                  <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-primary/20 border border-primary rounded-lg flex items-center justify-center hover:bg-primary hover:text-black transition-all duration-300">
+                  <a href="https://www.instagram.com/ragnaik/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-primary/20 border border-primary rounded-lg flex items-center justify-center hover:bg-primary hover:text-black transition-all duration-300">
                     <Instagram className="w-5 h-5" />
                   </a>
                   <a href="https://www.youtube.com/@DREAD_FEED" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-primary/20 border border-primary rounded-lg flex items-center justify-center hover:bg-primary hover:text-black transition-all duration-300">
