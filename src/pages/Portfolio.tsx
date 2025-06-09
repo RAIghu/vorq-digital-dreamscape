@@ -11,7 +11,7 @@ const Portfolio = () => {
     {
       id: 1,
       title: 'APOCALYPSE',
-      category: 'Ads',
+      category: 'Shorts',
       thumbnail: 'https://img.youtube.com/vi/W4IDyirE88M/maxresdefault.jpg',
       duration: '4:01',
       videoUrl: 'https://youtu.be/W4IDyirE88M?si=VmrpqKvAtgGXqJsR'
