@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -10,6 +9,14 @@ const Portfolio = () => {
   const filters = ['All', 'Ads', 'Shorts', 'Music Videos', 'VORIQ PROMO'];
 
   const portfolioItems = [
+    {
+      id: 6,
+      title: 'Swara Sustainable Jewellery',
+      category: 'VORIQ PROMO',
+      thumbnail: 'https://img.youtube.com/vi/2O-a4Hs98yw/maxresdefault.jpg',
+      duration: '3:15',
+      videoUrl: 'https://www.youtube.com/watch?v=2O-a4Hs98yw'
+    },
     {
       id: 1,
       title: 'APOCALYPSE',
@@ -25,14 +32,6 @@ const Portfolio = () => {
       thumbnail: 'https://img.youtube.com/vi/XDUmXo4onWs/maxresdefault.jpg',
       duration: '3:45',
       videoUrl: 'https://youtu.be/XDUmXo4onWs'
-    },
-    {
-      id: 3,
-      title: 'AI Animation - Brahmi',
-      category: 'Music Videos',
-      thumbnail: 'https://img.youtube.com/vi/1nbsp7ptqik/maxresdefault.jpg',
-      duration: '4:20',
-      videoUrl: 'https://youtu.be/1nbsp7ptqik'
     },
     {
       id: 4,
@@ -51,12 +50,12 @@ const Portfolio = () => {
       videoUrl: 'https://youtu.be/f-gb4rIr5j8'
     },
     {
-      id: 6,
-      title: 'Swara Sustainable Jewellery',
-      category: 'VORIQ PROMO',
-      thumbnail: 'https://img.youtube.com/vi/2O-a4Hs98yw/maxresdefault.jpg',
-      duration: '3:15',
-      videoUrl: 'https://www.youtube.com/watch?v=2O-a4Hs98yw'
+      id: 3,
+      title: 'AI Animation - Brahmi',
+      category: 'Music Videos',
+      thumbnail: 'https://img.youtube.com/vi/1nbsp7ptqik/maxresdefault.jpg',
+      duration: '4:20',
+      videoUrl: 'https://youtu.be/1nbsp7ptqik'
     }
   ];
 
