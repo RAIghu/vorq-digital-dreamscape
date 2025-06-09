@@ -129,7 +129,7 @@ const Portfolio = () => {
               <div className="p-6">
                 <div className="flex items-start justify-between mb-3">
                   <h3 className="font-semibold text-xl text-white">{item.title}</h3>
-                  {item.id === 2 && (
+                  {item.id === 1 && (
                     <Badge variant="secondary" className="bg-accent/20 text-accent border-accent/30 text-xs">
                       Award winning film
                     </Badge>
