@@ -1,15 +1,23 @@
+
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
+
 const Index = () => {
   return <div className="min-h-screen relative overflow-hidden">
       <Navigation />
       
-      {/* Video Background */}
+      {/* YouTube Video Background */}
       <div className="absolute inset-0 z-0">
-        <video autoPlay muted loop playsInline className="w-full h-full object-cover" poster="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=1920&h=1080&fit=crop">
-          <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4" />
-        </video>
+        <iframe 
+          className="w-full h-full object-cover"
+          src="https://www.youtube.com/embed/2O-a4Hs98yw?autoplay=1&mute=1&loop=1&playlist=2O-a4Hs98yw&controls=0&showinfo=0&rel=0&modestbranding=1&start=0&enablejsapi=1&origin=window.location.hostname"
+          title="VORIQ Background Video"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          style={{ pointerEvents: 'none' }}
+        />
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
 
@@ -41,4 +49,5 @@ const Index = () => {
       </div>
     </div>;
 };
+
 export default Index;
