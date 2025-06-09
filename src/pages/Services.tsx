@@ -16,7 +16,7 @@ const Services = () => {
     {
       title: 'Post-production',
       description: 'Revolutionary AI-driven editing, color grading, and visual effects that push the boundaries of what\'s possible in post-production.',
-      features: ['AI Video Editing', 'Neural Color Grading', 'Automated VFX Generation', 'Smart Audio Enhancement']
+      features: ['AI Video Editing', 'Neural Color Grading', 'Automated VFX Generation', 'Smart Audio Enhancement', 'AI audio dubbing in multiple languages', 'AI Voice Overs and Dialogues']
     }
   ];
 
