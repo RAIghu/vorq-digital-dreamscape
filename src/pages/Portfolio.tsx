@@ -6,7 +6,7 @@ import Navigation from '@/components/Navigation';
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('All');
 
-  const filters = ['All', 'Ads', 'Shorts', 'Music Videos', 'VORIQ PROMO'];
+  const filters = ['All', 'Ads', 'Shorts', 'Music Videos'];
 
   const portfolioItems = [
     {
