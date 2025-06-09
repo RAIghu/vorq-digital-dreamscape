@@ -36,7 +36,7 @@ const Portfolio = () => {
     },
     {
       id: 4,
-      title: 'Tech Giant Brand Film',
+      title: 'AIIRA Pet food',
       category: 'Ads',
       thumbnail: 'https://img.youtube.com/vi/WDHfNaw_B2E/maxresdefault.jpg',
       duration: '2:15',
