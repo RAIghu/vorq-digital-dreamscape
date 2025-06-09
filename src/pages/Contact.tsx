@@ -8,26 +8,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Mail, Instagram, Youtube, Facebook } from 'lucide-react';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    message: ''
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission here
-  };
-
   return (
     <div className="min-h-screen cinematic-gradient">
       <Navigation />
@@ -42,48 +22,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <Card className="glass-effect border-primary/20">
-            <CardContent className="p-8">
-              <h2 className="font-orbitron font-bold text-2xl mb-6 text-white">Start Your Project</h2>
-              
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                    Full Name *
-                  </label>
-                  <Input id="name" name="name" type="text" required value={formData.name} onChange={handleInputChange} className="bg-black/20 border-primary/30 text-white placeholder-gray-400 focus:border-primary" placeholder="Your full name" />
-                </div>
-
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                    Email Address *
-                  </label>
-                  <Input id="email" name="email" type="email" required value={formData.email} onChange={handleInputChange} className="bg-black/20 border-primary/30 text-white placeholder-gray-400 focus:border-primary" placeholder="your@email.com" />
-                </div>
-
-                <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
-                    Company/Organization
-                  </label>
-                  <Input id="company" name="company" type="text" value={formData.company} onChange={handleInputChange} className="bg-black/20 border-primary/30 text-white placeholder-gray-400 focus:border-primary" placeholder="Your company name" />
-                </div>
-
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                    Project Details *
-                  </label>
-                  <Textarea id="message" name="message" required value={formData.message} onChange={handleInputChange} rows={6} className="bg-black/20 border-primary/30 text-white placeholder-gray-400 focus:border-primary resize-none" placeholder="Tell us about your project, timeline, and vision..." />
-                </div>
-
-                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-black font-semibold py-3 transition-all duration-300 hover:scale-105">
-                  Send Message
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-
+        <div className="max-w-2xl mx-auto">
           {/* Contact Information */}
           <div className="space-y-8">
             <Card className="glass-effect border-primary/20">
