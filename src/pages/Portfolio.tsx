@@ -52,10 +52,11 @@ const Portfolio = () => {
     },
     {
       id: 6,
-      title: 'Electronic Pulse',
+      title: 'INCEPTION - Official Trailer [HD]',
       category: 'Music Videos',
-      thumbnail: 'https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?w=500&h=300&fit=crop',
-      duration: '3:15'
+      thumbnail: 'https://img.youtube.com/vi/AhNwHU0S8Xk/maxresdefault.jpg',
+      duration: '3:15',
+      videoUrl: 'https://www.youtube.com/watch?v=AhNwHU0S8Xk'
     }
   ];
 
