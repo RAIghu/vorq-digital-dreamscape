@@ -21,7 +21,7 @@ export default {
 			fontFamily: {
 				'sans': ['Inter', 'sans-serif'],
 				'orbitron': ['Orbitron', 'monospace'],
-				'agency': ['Oswald', 'Arial Black', 'sans-serif'],
+				'bebas': ['Bebas Neue', 'Arial Black', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
