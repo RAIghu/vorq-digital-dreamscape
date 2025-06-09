@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import { Card, CardContent } from '@/components/ui/card';
@@ -6,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, Instagram, Youtube, Facebook } from 'lucide-react';
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -14,22 +12,18 @@ const Contact = () => {
     company: '',
     message: ''
   });
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     // Handle form submission here
   };
-
-  return (
-    <div className="min-h-screen cinematic-gradient">
+  return <div className="min-h-screen cinematic-gradient">
       <Navigation />
       
       <div className="container mx-auto px-6 pt-24 pb-16">
@@ -53,69 +47,31 @@ const Contact = () => {
                   <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                     Full Name *
                   </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className="bg-black/20 border-primary/30 text-white placeholder-gray-400 focus:border-primary"
-                    placeholder="Your full name"
-                  />
+                  <Input id="name" name="name" type="text" required value={formData.name} onChange={handleInputChange} className="bg-black/20 border-primary/30 text-white placeholder-gray-400 focus:border-primary" placeholder="Your full name" />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                     Email Address *
                   </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="bg-black/20 border-primary/30 text-white placeholder-gray-400 focus:border-primary"
-                    placeholder="your@email.com"
-                  />
+                  <Input id="email" name="email" type="email" required value={formData.email} onChange={handleInputChange} className="bg-black/20 border-primary/30 text-white placeholder-gray-400 focus:border-primary" placeholder="your@email.com" />
                 </div>
 
                 <div>
                   <label htmlFor="company" className="block text-sm font-medium text-gray-300 mb-2">
                     Company/Organization
                   </label>
-                  <Input
-                    id="company"
-                    name="company"
-                    type="text"
-                    value={formData.company}
-                    onChange={handleInputChange}
-                    className="bg-black/20 border-primary/30 text-white placeholder-gray-400 focus:border-primary"
-                    placeholder="Your company name"
-                  />
+                  <Input id="company" name="company" type="text" value={formData.company} onChange={handleInputChange} className="bg-black/20 border-primary/30 text-white placeholder-gray-400 focus:border-primary" placeholder="Your company name" />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                     Project Details *
                   </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    required
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    rows={6}
-                    className="bg-black/20 border-primary/30 text-white placeholder-gray-400 focus:border-primary resize-none"
-                    placeholder="Tell us about your project, timeline, and vision..."
-                  />
+                  <Textarea id="message" name="message" required value={formData.message} onChange={handleInputChange} rows={6} className="bg-black/20 border-primary/30 text-white placeholder-gray-400 focus:border-primary resize-none" placeholder="Tell us about your project, timeline, and vision..." />
                 </div>
 
-                <Button 
-                  type="submit" 
-                  className="w-full bg-primary hover:bg-primary/90 text-black font-semibold py-3 transition-all duration-300 hover:scale-105"
-                >
+                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-black font-semibold py-3 transition-all duration-300 hover:scale-105">
                   Send Message
                 </Button>
               </form>
@@ -133,7 +89,7 @@ const Contact = () => {
                     <Mail className="w-6 h-6 text-primary mr-4" />
                     <div>
                       <p className="text-white font-medium">Email</p>
-                      <p className="text-gray-300">hello@voriq.studio</p>
+                      <p className="text-gray-300">voriqstudio@gmail.com</p>
                     </div>
                   </div>
                   
@@ -141,7 +97,7 @@ const Contact = () => {
                     <div className="w-6 h-6 bg-primary rounded mr-4"></div>
                     <div>
                       <p className="text-white font-medium">Location</p>
-                      <p className="text-gray-300">Los Angeles, CA</p>
+                      <p className="text-gray-300">Mumbai, India</p>
                     </div>
                   </div>
                   
@@ -161,22 +117,13 @@ const Contact = () => {
                 <h3 className="font-orbitron font-bold text-xl mb-6 text-white">Follow Our Journey</h3>
                 
                 <div className="flex space-x-4">
-                  <a 
-                    href="#" 
-                    className="w-12 h-12 bg-primary/20 border border-primary rounded-lg flex items-center justify-center hover:bg-primary hover:text-black transition-all duration-300"
-                  >
+                  <a href="#" className="w-12 h-12 bg-primary/20 border border-primary rounded-lg flex items-center justify-center hover:bg-primary hover:text-black transition-all duration-300">
                     <Instagram className="w-5 h-5" />
                   </a>
-                  <a 
-                    href="#" 
-                    className="w-12 h-12 bg-primary/20 border border-primary rounded-lg flex items-center justify-center hover:bg-primary hover:text-black transition-all duration-300"
-                  >
+                  <a href="#" className="w-12 h-12 bg-primary/20 border border-primary rounded-lg flex items-center justify-center hover:bg-primary hover:text-black transition-all duration-300">
                     <Youtube className="w-5 h-5" />
                   </a>
-                  <a 
-                    href="#" 
-                    className="w-12 h-12 bg-primary/20 border border-primary rounded-lg flex items-center justify-center hover:bg-primary hover:text-black transition-all duration-300"
-                  >
+                  <a href="#" className="w-12 h-12 bg-primary/20 border border-primary rounded-lg flex items-center justify-center hover:bg-primary hover:text-black transition-all duration-300">
                     <Facebook className="w-5 h-5" />
                   </a>
                 </div>
@@ -204,8 +151,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Contact;
