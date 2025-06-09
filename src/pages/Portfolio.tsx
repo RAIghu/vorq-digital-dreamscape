@@ -28,10 +28,11 @@ const Portfolio = () => {
     },
     {
       id: 3,
-      title: 'Synthwave Odyssey',
+      title: 'AI Animation - Brahmi',
       category: 'Music Videos',
-      thumbnail: 'https://images.unsplash.com/photo-1500673922987-e212871fec22?w=500&h=300&fit=crop',
-      duration: '4:20'
+      thumbnail: 'https://img.youtube.com/vi/1nbsp7ptqik/maxresdefault.jpg',
+      duration: '4:20',
+      videoUrl: 'https://youtu.be/1nbsp7ptqik'
     },
     {
       id: 4,
