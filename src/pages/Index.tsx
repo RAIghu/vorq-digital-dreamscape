@@ -1,14 +1,11 @@
-
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import { useState } from 'react';
 import { VolumeX, Volume2 } from 'lucide-react';
-
 const Index = () => {
   const [isMuted, setIsMuted] = useState(true);
   const [showControls, setShowControls] = useState(false);
-
   const toggleMute = () => {
     setIsMuted(!isMuted);
     // We'll need to reload the iframe with the new mute parameter
@@ -19,42 +16,23 @@ const Index = () => {
       iframe.src = newSrc;
     }
   };
-
-  return (
-    <div className="min-h-screen relative overflow-hidden">
+  return <div className="min-h-screen relative overflow-hidden">
       <Navigation />
       
       {/* YouTube Video Background */}
-      <div 
-        className="absolute inset-0 z-0"
-        onMouseEnter={() => setShowControls(true)}
-        onMouseLeave={() => setShowControls(false)}
-      >
-        <iframe 
-          id="background-video"
-          className="w-full h-full object-cover"
-          src={`https://www.youtube.com/embed/2O-a4Hs98yw?autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=2O-a4Hs98yw&controls=0&showinfo=0&rel=0&modestbranding=1&start=0&enablejsapi=1&origin=${window.location.hostname}`}
-          title="VORIQ Background Video"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          style={{ pointerEvents: 'none' }}
-        />
+      <div className="absolute inset-0 z-0" onMouseEnter={() => setShowControls(true)} onMouseLeave={() => setShowControls(false)}>
+        <iframe id="background-video" className="w-full h-full object-cover" src={`https://www.youtube.com/embed/2O-a4Hs98yw?autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=2O-a4Hs98yw&controls=0&showinfo=0&rel=0&modestbranding=1&start=0&enablejsapi=1&origin=${window.location.hostname}`} title="VORIQ Background Video" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen style={{
+        pointerEvents: 'none'
+      }} />
         
         {/* Audio Control Button */}
-        {showControls && (
-          <div className="absolute top-4 right-4 z-20">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleMute}
-              className="glass-effect text-foreground hover:text-primary transition-all duration-300"
-              style={{ pointerEvents: 'auto' }}
-            >
+        {showControls && <div className="absolute top-4 right-4 z-20">
+            <Button variant="ghost" size="sm" onClick={toggleMute} className="glass-effect text-foreground hover:text-primary transition-all duration-300" style={{
+          pointerEvents: 'auto'
+        }}>
               {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
             </Button>
-          </div>
-        )}
+          </div>}
         
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
@@ -72,7 +50,7 @@ const Index = () => {
             Where artificial intelligence meets cinematic excellence. Creating award-winning content that pushes the boundaries of what's possible.
           </p>
           <Link to="/portfolio">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-4 text-lg animate-glow transition-all duration-300 hover:scale-105">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 font-semibold px-8 py-4 text-lg animate-glow transition-all duration-300 hover:scale-105 text-cinematic-gold">
               View Portfolio
             </Button>
           </Link>
@@ -85,8 +63,6 @@ const Index = () => {
           <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-bounce"></div>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
