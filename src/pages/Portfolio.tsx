@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -42,7 +43,7 @@ const Portfolio = () => {
     },
     {
       id: 5,
-      title: 'Digital Emotions',
+      title: 'Territory',
       category: 'Shorts',
       thumbnail: 'https://img.youtube.com/vi/f-gb4rIr5j8/maxresdefault.jpg',
       duration: '5:30',
