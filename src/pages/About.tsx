@@ -1,10 +1,7 @@
-
 import Navigation from '@/components/Navigation';
 import { Card, CardContent } from '@/components/ui/card';
-
 const About = () => {
-  return (
-    <div className="min-h-screen cinematic-gradient">
+  return <div className="min-h-screen cinematic-gradient">
       <Navigation />
       
       <div className="container mx-auto px-6 pt-24 pb-16">
@@ -85,7 +82,7 @@ const About = () => {
                   <span className="text-black font-bold">2024</span>
                 </div>
                 <div>
-                  <p className="text-white font-semibold">Cannes Lions - Innovation Grand Prix</p>
+                  <p className="text-white font-semibold">Finalist at Project Odyssey, Los Angeles, USA</p>
                 </div>
               </div>
 
@@ -94,25 +91,25 @@ const About = () => {
                   <span className="text-black font-bold">2024</span>
                 </div>
                 <div>
-                  <p className="text-white font-semibold">Sundance Film Festival - Special Jury Prize</p>
+                  <p className="text-white font-semibold">Special mention at Project Odyssey Season 2, Los Angeles, USA</p>
                 </div>
               </div>
 
               <div className="flex items-center p-4 bg-black/20 rounded-lg border border-primary/10">
                 <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mr-4">
-                  <span className="text-black font-bold">2023</span>
+                  <span className="text-black font-bold">2025</span>
                 </div>
                 <div>
-                  <p className="text-white font-semibold">SXSW - Excellence in AI Filmmaking</p>
+                  <p className="text-white font-semibold">Nominee at Turkey International AI Film Festival</p>
                 </div>
               </div>
 
               <div className="flex items-center p-4 bg-black/20 rounded-lg border border-primary/10">
                 <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mr-4">
-                  <span className="text-black font-bold">2023</span>
+                  <span className="text-black font-bold">2025</span>
                 </div>
                 <div>
-                  <p className="text-white font-semibold">Venice Biennale - Digital Arts Recognition</p>
+                  <p className="text-white font-semibold">Official Selection - DUST SCI FI Channel</p>
                 </div>
               </div>
             </div>
@@ -121,25 +118,28 @@ const About = () => {
 
         {/* Stats Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
-          {[
-            { number: '50+', label: 'Projects Completed' },
-            { number: '15+', label: 'Festival Awards' },
-            { number: '100M+', label: 'Views Generated' },
-            { number: '25+', label: 'Global Clients' }
-          ].map((stat, index) => (
-            <div key={index} className="text-center">
+          {[{
+          number: '50+',
+          label: 'Projects Completed'
+        }, {
+          number: '15+',
+          label: 'Festival Awards'
+        }, {
+          number: '100M+',
+          label: 'Views Generated'
+        }, {
+          number: '25+',
+          label: 'Global Clients'
+        }].map((stat, index) => <div key={index} className="text-center">
               <div className="text-4xl md:text-5xl font-orbitron font-bold text-primary mb-2">
                 {stat.number}
               </div>
               <div className="text-gray-300 text-sm md:text-base">
                 {stat.label}
               </div>
-            </div>
-          ))}
+            </div>)}
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default About;
