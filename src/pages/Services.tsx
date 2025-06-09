@@ -1,8 +1,6 @@
-
 import Navigation from '@/components/Navigation';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
-
 const Services = () => {
   const services = [{
     title: 'Pre-production',
@@ -17,25 +15,13 @@ const Services = () => {
     description: 'Revolutionary AI-driven editing, color grading, and visual effects that push the boundaries of what\'s possible in post-production.',
     features: ['AI Video Editing', 'Neural Color Grading', 'Automated VFX Generation', 'Smart Audio Enhancement', 'AI audio dubbing in multiple languages', 'AI Voice Overs and Dialogues']
   }];
-
-  const filmCategories = [
-    'Ad Films',
-    'Brand Videos', 
-    'Short Films',
-    'Music Videos',
-    'Web Series',
-    'Documentaries',
-    'Feature Length Films'
-  ];
-
+  const filmCategories = ['Ad Films', 'Brand Videos', 'Short Films', 'Music Videos', 'Web Series', 'Documentaries', 'Feature Length Films'];
   return <div className="min-h-screen cinematic-gradient">
       <Navigation />
       
       <div className="container mx-auto px-6 pt-24 pb-16">
         <div className="text-center mb-16">
-          <h1 className="font-orbitron font-bold text-5xl md:text-6xl mb-6 text-white">
-            Offerings
-          </h1>
+          <h1 className="font-orbitron font-bold text-5xl md:text-6xl mb-6 text-white">Services</h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             End-to-end AI-powered film production services that redefine storytelling
           </p>
@@ -76,8 +62,7 @@ const Services = () => {
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                {filmCategories.map((category, index) => (
-                  <div key={index} className="group">
+                {filmCategories.map((category, index) => <div key={index} className="group">
                     <div className="bg-card/50 border border-primary/20 rounded-lg p-6 text-center hover:border-primary/40 transition-all duration-300 hover:scale-105">
                       <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:animate-glow">
                         <div className="w-3 h-3 bg-black rounded-full"></div>
@@ -85,8 +70,7 @@ const Services = () => {
                       <h3 className="font-semibold text-lg text-white mb-2">{category}</h3>
                       <p className="text-sm text-gray-400">AI-enhanced production</p>
                     </div>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </CardContent>
           </Card>
@@ -112,5 +96,4 @@ const Services = () => {
       </div>
     </div>;
 };
-
 export default Services;
