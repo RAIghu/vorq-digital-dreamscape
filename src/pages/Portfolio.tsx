@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -36,8 +37,9 @@ const Portfolio = () => {
       id: 4,
       title: 'Tech Giant Brand Film',
       category: 'Ads',
-      thumbnail: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=500&h=300&fit=crop',
-      duration: '2:15'
+      thumbnail: 'https://img.youtube.com/vi/WDHfNaw_B2E/maxresdefault.jpg',
+      duration: '2:15',
+      videoUrl: 'https://youtu.be/WDHfNaw_B2E?si=yA5Z7dWt-A_PONF-'
     },
     {
       id: 5,
