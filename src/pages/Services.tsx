@@ -1,27 +1,20 @@
 import Navigation from '@/components/Navigation';
 import { Card, CardContent } from '@/components/ui/card';
-
 const Services = () => {
-  const services = [
-    {
-      title: 'Pre-production',
-      description: 'AI-powered script development, storyboarding, and creative conceptualization. We use advanced language models to refine narratives and generate compelling visual concepts.',
-      features: ['Script Analysis & Enhancement', 'AI Storyboard Generation', 'Concept Visualization', 'Character Development']
-    },
-    {
-      title: 'Production',
-      description: 'Cutting-edge filming techniques combined with real-time AI assistance for optimal shot composition, lighting, and performance capture.',
-      features: ['AI assisted motion capture', 'AI augmented virtual productions', 'AI assisted Performance capture', 'Mixing AI workflow with traditional film production', 'AI Pre-Visualisations of complex shots']
-    },
-    {
-      title: 'Post-production',
-      description: 'Revolutionary AI-driven editing, color grading, and visual effects that push the boundaries of what\'s possible in post-production.',
-      features: ['AI Video Editing', 'Neural Color Grading', 'Automated VFX Generation', 'Smart Audio Enhancement', 'AI audio dubbing in multiple languages', 'AI Voice Overs and Dialogues']
-    }
-  ];
-
-  return (
-    <div className="min-h-screen cinematic-gradient">
+  const services = [{
+    title: 'Pre-production',
+    description: 'AI-powered script development, storyboarding, and creative conceptualization. We use advanced language models to refine narratives and generate compelling visual concepts.',
+    features: ['Script Analysis & Enhancement', 'AI Storyboard Generation', 'Concept Visualization', 'Character Development']
+  }, {
+    title: 'Production',
+    description: 'Cutting-edge filming techniques combined with real-time AI assistance for optimal shot composition, lighting, and performance capture.',
+    features: ['AI assisted motion capture', 'AI augmented virtual productions', 'AI assisted Performance capture', 'Mixing AI workflow with traditional film production', 'AI Pre-Visualisations of complex shots']
+  }, {
+    title: 'Post-production',
+    description: 'Revolutionary AI-driven editing, color grading, and visual effects that push the boundaries of what\'s possible in post-production.',
+    features: ['AI Video Editing', 'Neural Color Grading', 'Automated VFX Generation', 'Smart Audio Enhancement', 'AI audio dubbing in multiple languages', 'AI Voice Overs and Dialogues']
+  }];
+  return <div className="min-h-screen cinematic-gradient">
       <Navigation />
       
       <div className="container mx-auto px-6 pt-24 pb-16">
@@ -35,8 +28,7 @@ const Services = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <Card key={service.title} className="glass-effect border-primary/20 group hover:border-primary/40 transition-all duration-300">
+          {services.map((service, index) => <Card key={service.title} className="glass-effect border-primary/20 group hover:border-primary/40 transition-all duration-300">
               <CardContent className="p-8">
                 <div className="mb-6">
                   <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4 group-hover:animate-glow">
@@ -47,16 +39,13 @@ const Services = () => {
                 </div>
                 
                 <div className="space-y-3">
-                  {service.features.map((feature, featureIndex) => (
-                    <div key={featureIndex} className="flex items-center">
+                  {service.features.map((feature, featureIndex) => <div key={featureIndex} className="flex items-center">
                       <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
                       <span className="text-gray-400">{feature}</span>
-                    </div>
-                  ))}
+                    </div>)}
                 </div>
               </CardContent>
-            </Card>
-          ))}
+            </Card>)}
         </div>
 
         <div className="mt-16 text-center">
@@ -69,9 +58,7 @@ const Services = () => {
                 Let's discuss how VORIQ can bring your vision to life with the power of AI
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105">
-                  Start a Project
-                </button>
+                <button className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105">Contact US</button>
                 <button className="border border-primary text-primary hover:bg-primary hover:text-black font-semibold px-8 py-3 rounded-lg transition-all duration-300">
                   View Pricing
                 </button>
@@ -80,8 +67,6 @@ const Services = () => {
           </Card>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Services;
