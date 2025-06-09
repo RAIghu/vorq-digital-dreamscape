@@ -32,14 +32,7 @@ const Services = () => {
       <Navigation />
       
       <div className="container mx-auto px-6 pt-24 pb-16">
-        <div className="text-center mb-16">
-          <h1 className="font-orbitron font-bold text-5xl md:text-6xl mb-6 text-white">Offerings</h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            End-to-end AI-powered film production services that redefine storytelling
-          </p>
-        </div>
-
-        {/* AI Augmented Films Section - Moved to top */}
+        {/* AI Augmented Films Section - Now at the top */}
         <div className="mb-20">
           <Card className="glass-effect border-primary/20">
             <CardContent className="p-12">
@@ -69,7 +62,15 @@ const Services = () => {
           </Card>
         </div>
 
-        {/* Services Section - Moved to bottom */}
+        {/* Main Title and Description - Now below AI Augmented Films */}
+        <div className="text-center mb-16">
+          <h1 className="font-orbitron font-bold text-5xl md:text-6xl mb-6 text-white">Offerings</h1>
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            End-to-end AI-powered film production services that redefine storytelling
+          </p>
+        </div>
+
+        {/* Services Section - At the bottom */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
           {services.map((service, index) => (
             <Card key={service.title} className="glass-effect border-primary/20 group hover:border-primary/40 transition-all duration-300">
