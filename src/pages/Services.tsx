@@ -1,4 +1,3 @@
-
 import Navigation from '@/components/Navigation';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -12,7 +11,7 @@ const Services = () => {
     {
       title: 'Production',
       description: 'Cutting-edge filming techniques combined with real-time AI assistance for optimal shot composition, lighting, and performance capture.',
-      features: ['AI-Assisted Cinematography', 'Real-time Performance Analysis', 'Automated Camera Movements', 'Smart Lighting Systems']
+      features: ['AI assisted motion capture', 'AI augmented virtual productions', 'AI assisted Performance capture', 'Mixing AI workflow with traditional film production']
     },
     {
       title: 'Post-production',
