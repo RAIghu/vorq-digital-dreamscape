@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -52,7 +53,7 @@ const Portfolio = () => {
     {
       id: 6,
       title: 'Swara Sustainable Jewellery',
-      category: 'Music Videos',
+      category: 'Ads',
       thumbnail: 'https://img.youtube.com/vi/AhNwHU0S8Xk/maxresdefault.jpg',
       duration: '3:15',
       videoUrl: 'https://www.youtube.com/watch?v=AhNwHU0S8Xk'
