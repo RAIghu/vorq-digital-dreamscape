@@ -21,7 +21,7 @@ const Portfolio = () => {
       id: 2,
       title: 'Silver Stone Luxury Jewellery',
       category: 'Ads',
-      thumbnail: 'https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?w=500&h=300&fit=crop',
+      thumbnail: 'https://img.youtube.com/vi/XDUmXo4onWs/maxresdefault.jpg',
       duration: '3:45',
       videoUrl: 'https://youtu.be/XDUmXo4onWs'
     },
