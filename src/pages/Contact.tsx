@@ -1,10 +1,11 @@
+
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Mail, Instagram, Youtube, Linkedin } from 'lucide-react';
+import { Mail, Instagram, Youtube, Linkedin, MessageCircle } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -34,6 +35,14 @@ const Contact = () => {
                     <div>
                       <p className="text-white font-medium">Email</p>
                       <p className="text-gray-300">voriqstudio@gmail.com</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center">
+                    <MessageCircle className="w-6 h-6 text-primary mr-4" />
+                    <div>
+                      <p className="text-white font-medium">WhatsApp</p>
+                      <p className="text-gray-300">+91 9967818377</p>
                     </div>
                   </div>
                   
