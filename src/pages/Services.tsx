@@ -59,9 +59,7 @@ const Services = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <button className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105">Contact US</button>
-                <button className="border border-primary text-primary hover:bg-primary hover:text-black font-semibold px-8 py-3 rounded-lg transition-all duration-300">
-                  View Pricing
-                </button>
+                
               </div>
             </CardContent>
           </Card>
