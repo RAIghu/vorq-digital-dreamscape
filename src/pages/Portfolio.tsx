@@ -1,4 +1,5 @@
 
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -121,11 +122,6 @@ const Portfolio = () => {
                     <div className="w-0 h-0 border-l-8 border-l-black border-t-4 border-t-transparent border-b-4 border-b-transparent ml-1"></div>
                   </div>
                 </div>
-
-                {/* Duration */}
-                <div className="absolute bottom-3 right-3 bg-black/80 text-white px-2 py-1 rounded text-sm">
-                  {item.duration}
-                </div>
               </div>
 
               <div className="p-6">
@@ -150,3 +146,4 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
+
