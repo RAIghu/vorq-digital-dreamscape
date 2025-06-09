@@ -2,75 +2,59 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import Navigation from '@/components/Navigation';
-
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('All');
-
   const filters = ['All', 'Ads', 'Shorts', 'Music Videos', 'VORIQ PROMO'];
-
-  const portfolioItems = [
-    {
-      id: 6,
-      title: 'VORIQ - PROMO',
-      category: 'Ads',
-      thumbnail: 'https://img.youtube.com/vi/2O-a4Hs98yw/maxresdefault.jpg',
-      duration: '3:15',
-      videoUrl: 'https://www.youtube.com/watch?v=2O-a4Hs98yw'
-    },
-    {
-      id: 1,
-      title: 'APOCALYPSE',
-      category: 'Shorts',
-      thumbnail: 'https://img.youtube.com/vi/W4IDyirE88M/maxresdefault.jpg',
-      duration: '4:01',
-      videoUrl: 'https://youtu.be/W4IDyirE88M?si=VmrpqKvAtgGXqJsR'
-    },
-    {
-      id: 2,
-      title: 'Silver Stone Luxury Jewellery',
-      category: 'Ads',
-      thumbnail: 'https://img.youtube.com/vi/XDUmXo4onWs/maxresdefault.jpg',
-      duration: '3:45',
-      videoUrl: 'https://youtu.be/XDUmXo4onWs'
-    },
-    {
-      id: 4,
-      title: 'AIIRA Pet food',
-      category: 'Ads',
-      thumbnail: 'https://img.youtube.com/vi/WDHfNaw_B2E/maxresdefault.jpg',
-      duration: '2:15',
-      videoUrl: 'https://youtu.be/WDHfNaw_B2E?si=yA5Z7dWt-A_PONF-'
-    },
-    {
-      id: 5,
-      title: 'Territory',
-      category: 'Shorts',
-      thumbnail: 'https://img.youtube.com/vi/f-gb4rIr5j8/maxresdefault.jpg',
-      duration: '5:30',
-      videoUrl: 'https://youtu.be/f-gb4rIr5j8'
-    },
-    {
-      id: 3,
-      title: 'AI Animation - Brahmi',
-      category: 'Music Videos',
-      thumbnail: 'https://img.youtube.com/vi/1nbsp7ptqik/maxresdefault.jpg',
-      duration: '4:20',
-      videoUrl: 'https://youtu.be/1nbsp7ptqik'
-    }
-  ];
-
-  const filteredItems = activeFilter === 'All' 
-    ? portfolioItems 
-    : portfolioItems.filter(item => item.category === activeFilter);
-
+  const portfolioItems = [{
+    id: 6,
+    title: 'VORIQ - PROMO',
+    category: 'Ads',
+    thumbnail: 'https://img.youtube.com/vi/2O-a4Hs98yw/maxresdefault.jpg',
+    duration: '3:15',
+    videoUrl: 'https://www.youtube.com/watch?v=2O-a4Hs98yw'
+  }, {
+    id: 1,
+    title: 'APOCALYPSE',
+    category: 'Shorts',
+    thumbnail: 'https://img.youtube.com/vi/W4IDyirE88M/maxresdefault.jpg',
+    duration: '4:01',
+    videoUrl: 'https://youtu.be/W4IDyirE88M?si=VmrpqKvAtgGXqJsR'
+  }, {
+    id: 2,
+    title: 'Silver Stone Luxury Jewellery',
+    category: 'Ads',
+    thumbnail: 'https://img.youtube.com/vi/XDUmXo4onWs/maxresdefault.jpg',
+    duration: '3:45',
+    videoUrl: 'https://youtu.be/XDUmXo4onWs'
+  }, {
+    id: 4,
+    title: 'AIIRA Pet food',
+    category: 'Ads',
+    thumbnail: 'https://img.youtube.com/vi/WDHfNaw_B2E/maxresdefault.jpg',
+    duration: '2:15',
+    videoUrl: 'https://youtu.be/WDHfNaw_B2E?si=yA5Z7dWt-A_PONF-'
+  }, {
+    id: 5,
+    title: 'Territory',
+    category: 'Shorts',
+    thumbnail: 'https://img.youtube.com/vi/f-gb4rIr5j8/maxresdefault.jpg',
+    duration: '5:30',
+    videoUrl: 'https://youtu.be/f-gb4rIr5j8'
+  }, {
+    id: 3,
+    title: 'AI Animation - Brahmi',
+    category: 'Music Videos',
+    thumbnail: 'https://img.youtube.com/vi/1nbsp7ptqik/maxresdefault.jpg',
+    duration: '4:20',
+    videoUrl: 'https://youtu.be/1nbsp7ptqik'
+  }];
+  const filteredItems = activeFilter === 'All' ? portfolioItems : portfolioItems.filter(item => item.category === activeFilter);
   const handleItemClick = (item: typeof portfolioItems[0]) => {
     if (item.videoUrl) {
       window.open(item.videoUrl, '_blank');
     }
   };
-
-  return (
-    <div className="min-h-screen cinematic-gradient">
+  return <div className="min-h-screen cinematic-gradient">
       <Navigation />
       
       <div className="container mx-auto px-6 pt-24 pb-16">
@@ -85,36 +69,14 @@ const Portfolio = () => {
 
         {/* Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {filters.map((filter) => (
-            <Button
-              key={filter}
-              variant={activeFilter === filter ? "default" : "outline"}
-              onClick={() => setActiveFilter(filter)}
-              className={`px-6 py-2 transition-all duration-300 ${
-                activeFilter === filter
-                  ? 'bg-primary text-black hover:bg-primary/90'
-                  : 'border-primary text-primary hover:bg-primary hover:text-black'
-              }`}
-            >
-              {filter}
-            </Button>
-          ))}
+          {filters.map(filter => {})}
         </div>
 
         {/* Video Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredItems.map((item) => (
-            <div
-              key={item.id}
-              className="group relative bg-card rounded-lg overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer"
-              onClick={() => handleItemClick(item)}
-            >
+          {filteredItems.map(item => <div key={item.id} className="group relative bg-card rounded-lg overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer" onClick={() => handleItemClick(item)}>
               <div className="relative">
-                <img
-                  src={item.thumbnail}
-                  alt={item.title}
-                  className="w-full h-64 object-cover"
-                />
+                <img src={item.thumbnail} alt={item.title} className="w-full h-64 object-cover" />
                 <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300"></div>
                 
                 {/* Play Button */}
@@ -128,22 +90,17 @@ const Portfolio = () => {
               <div className="p-6">
                 <div className="flex items-start justify-between mb-3">
                   <h3 className="font-semibold text-xl text-white">{item.title}</h3>
-                  {item.id === 1 && (
-                    <Badge variant="secondary" className="bg-accent/20 text-accent border-accent/30 text-xs">
+                  {item.id === 1 && <Badge variant="secondary" className="bg-accent/20 text-accent border-accent/30 text-xs">
                       Award winning film
-                    </Badge>
-                  )}
+                    </Badge>}
                 </div>
                 <span className="inline-block bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">
                   {item.category}
                 </span>
               </div>
-            </div>
-          ))}
+            </div>)}
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Portfolio;
