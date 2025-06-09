@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import { Card, CardContent } from '@/components/ui/card';
@@ -68,7 +67,7 @@ const Contact = () => {
                   <a href="https://www.youtube.com/@DREAD_FEED" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-primary/20 border border-primary rounded-lg flex items-center justify-center hover:bg-primary hover:text-black transition-all duration-300">
                     <Youtube className="w-5 h-5" />
                   </a>
-                  <a href="#" className="w-12 h-12 bg-primary/20 border border-primary rounded-lg flex items-center justify-center hover:bg-primary hover:text-black transition-all duration-300">
+                  <a href="https://www.linkedin.com/in/raghu-naik-7958a235" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-primary/20 border border-primary rounded-lg flex items-center justify-center hover:bg-primary hover:text-black transition-all duration-300">
                     <Linkedin className="w-5 h-5" />
                   </a>
                 </div>
