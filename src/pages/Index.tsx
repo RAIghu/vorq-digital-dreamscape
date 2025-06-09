@@ -62,7 +62,7 @@ const Index = () => {
       {/* Hero Content */}
       <div className="relative z-10 min-h-screen flex items-center justify-center">
         <div className="text-center px-6 max-w-4xl mx-auto">
-          <h1 className="font-orbitron font-black text-6xl md:text-8xl lg:text-9xl mb-6 animate-fade-in text-cinematic-gold">
+          <h1 className="font-agency font-black text-6xl md:text-8xl lg:text-9xl mb-6 animate-fade-in text-cinematic-gold uppercase tracking-wider">
             VORIQ
           </h1>
           <p className="text-xl md:text-2xl lg:text-3xl mb-8 font-light tracking-wide animate-fade-in text-glow text-cinematic-gold">
