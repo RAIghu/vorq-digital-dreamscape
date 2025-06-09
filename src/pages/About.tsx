@@ -1,8 +1,22 @@
-
 import Navigation from '@/components/Navigation';
 import { Card, CardContent } from '@/components/ui/card';
+import { useState } from 'react';
+import { Upload } from 'lucide-react';
 
 const About = () => {
+  const [founderImage, setFounderImage] = useState<string | null>(null);
+
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setFounderImage(e.target?.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <div className="min-h-screen cinematic-gradient">
       <Navigation />
@@ -22,8 +36,25 @@ const About = () => {
           <Card className="glass-effect border-primary/20">
             <CardContent className="p-8">
               <div className="text-center mb-8">
-                <div className="w-32 h-32 bg-gradient-to-br from-primary to-accent rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <span className="text-4xl font-orbitron font-bold text-black">RN</span>
+                <div className="w-32 h-32 mx-auto mb-6 relative">
+                  {founderImage ? (
+                    <img 
+                      src={founderImage} 
+                      alt="Raghu Naik" 
+                      className="w-full h-full object-cover rounded-full border-2 border-primary"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 rounded-full border-2 border-primary/40 border-dashed flex items-center justify-center cursor-pointer hover:border-primary transition-colors">
+                      <Upload className="w-8 h-8 text-primary" />
+                    </div>
+                  )}
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageUpload}
+                    className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                    title="Upload founder image"
+                  />
                 </div>
                 <h2 className="font-orbitron font-bold text-3xl mb-2 text-white">Raghu Naik</h2>
                 <p className="text-primary text-lg">Founder & Creative Director</p>
