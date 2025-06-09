@@ -10,7 +10,7 @@ const Portfolio = () => {
   const portfolioItems = [
     {
       id: 1,
-      title: 'APOCALYPSE',
+      title: 'Luxury Jewellery Ad',
       category: 'Shorts',
       thumbnail: 'https://img.youtube.com/vi/W4IDyirE88M/maxresdefault.jpg',
       duration: '4:01',
