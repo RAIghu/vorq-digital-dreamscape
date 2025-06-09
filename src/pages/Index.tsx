@@ -19,7 +19,7 @@ const Index = () => {
           <h1 className="font-orbitron font-black text-6xl md:text-8xl lg:text-9xl mb-6 animate-fade-in text-cinematic-gold">
             VORIQ
           </h1>
-          <p className="text-xl md:text-2xl lg:text-3xl mb-8 text-primary font-light tracking-wide animate-fade-in text-glow">
+          <p className="text-xl md:text-2xl lg:text-3xl mb-8 font-light tracking-wide animate-fade-in text-glow text-cinematic-gold">
             Pioneering AI Storytelling
           </p>
           <p className="text-lg md:text-xl mb-12 text-gray-300 max-w-2xl mx-auto animate-fade-in">
