@@ -1,5 +1,7 @@
 import Navigation from '@/components/Navigation';
 import { Card, CardContent } from '@/components/ui/card';
+import { Link } from 'react-router-dom';
+
 const Services = () => {
   const services = [{
     title: 'Pre-production',
@@ -14,6 +16,7 @@ const Services = () => {
     description: 'Revolutionary AI-driven editing, color grading, and visual effects that push the boundaries of what\'s possible in post-production.',
     features: ['AI Video Editing', 'Neural Color Grading', 'Automated VFX Generation', 'Smart Audio Enhancement', 'AI audio dubbing in multiple languages', 'AI Voice Overs and Dialogues']
   }];
+
   return <div className="min-h-screen cinematic-gradient">
       <Navigation />
       
@@ -58,8 +61,9 @@ const Services = () => {
                 Let's discuss how VORIQ can bring your vision to life with the power of AI
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105">Contact Us</button>
-                
+                <Link to="/contact">
+                  <button className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105">Contact Us</button>
+                </Link>
               </div>
             </CardContent>
           </Card>
@@ -67,4 +71,5 @@ const Services = () => {
       </div>
     </div>;
 };
+
 export default Services;
