@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -52,7 +51,7 @@ const Portfolio = () => {
     },
     {
       id: 6,
-      title: 'INCEPTION - Official Trailer [HD]',
+      title: 'Swara Sustainable Jewellery',
       category: 'Music Videos',
       thumbnail: 'https://img.youtube.com/vi/AhNwHU0S8Xk/maxresdefault.jpg',
       duration: '3:15',
