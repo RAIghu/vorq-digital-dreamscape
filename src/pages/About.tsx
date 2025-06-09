@@ -3,13 +3,6 @@ import Navigation from '@/components/Navigation';
 import { Card, CardContent } from '@/components/ui/card';
 
 const About = () => {
-  const awards = [
-    { year: '2024', award: 'Cannes Lions - Innovation Grand Prix' },
-    { year: '2024', award: 'Sundance Film Festival - Special Jury Prize' },
-    { year: '2023', award: 'SXSW - Excellence in AI Filmmaking' },
-    { year: '2023', award: 'Venice Biennale - Digital Arts Recognition' }
-  ];
-
   return (
     <div className="min-h-screen cinematic-gradient">
       <Navigation />
@@ -87,16 +80,41 @@ const About = () => {
             <h2 className="font-orbitron font-bold text-3xl mb-8 text-center text-white">Festival Awards & Recognition</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {awards.map((award, index) => (
-                <div key={index} className="flex items-center p-4 bg-black/20 rounded-lg border border-primary/10">
-                  <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mr-4">
-                    <span className="text-black font-bold">{award.year}</span>
-                  </div>
-                  <div>
-                    <p className="text-white font-semibold">{award.award}</p>
-                  </div>
+              <div className="flex items-center p-4 bg-black/20 rounded-lg border border-primary/10">
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mr-4">
+                  <span className="text-black font-bold">2024</span>
                 </div>
-              ))}
+                <div>
+                  <p className="text-white font-semibold">Cannes Lions - Innovation Grand Prix</p>
+                </div>
+              </div>
+
+              <div className="flex items-center p-4 bg-black/20 rounded-lg border border-primary/10">
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mr-4">
+                  <span className="text-black font-bold">2024</span>
+                </div>
+                <div>
+                  <p className="text-white font-semibold">Sundance Film Festival - Special Jury Prize</p>
+                </div>
+              </div>
+
+              <div className="flex items-center p-4 bg-black/20 rounded-lg border border-primary/10">
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mr-4">
+                  <span className="text-black font-bold">2023</span>
+                </div>
+                <div>
+                  <p className="text-white font-semibold">SXSW - Excellence in AI Filmmaking</p>
+                </div>
+              </div>
+
+              <div className="flex items-center p-4 bg-black/20 rounded-lg border border-primary/10">
+                <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mr-4">
+                  <span className="text-black font-bold">2023</span>
+                </div>
+                <div>
+                  <p className="text-white font-semibold">Venice Biennale - Digital Arts Recognition</p>
+                </div>
+              </div>
             </div>
           </CardContent>
         </Card>
