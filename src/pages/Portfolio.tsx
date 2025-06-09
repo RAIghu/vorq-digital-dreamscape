@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -23,7 +22,8 @@ const Portfolio = () => {
       title: 'Silver Stone Luxury Jewellery',
       category: 'Ads',
       thumbnail: 'https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?w=500&h=300&fit=crop',
-      duration: '3:45'
+      duration: '3:45',
+      videoUrl: 'https://youtu.be/XDUmXo4onWs'
     },
     {
       id: 3,
