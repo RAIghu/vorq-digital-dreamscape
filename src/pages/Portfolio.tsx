@@ -7,7 +7,7 @@ import Navigation from '@/components/Navigation';
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('All');
 
-  const filters = ['All', 'Ads', 'Shorts', 'Music Videos'];
+  const filters = ['All', 'Ads', 'Shorts', 'Music Videos', 'VORIQ PROMO'];
 
   const portfolioItems = [
     {
@@ -53,10 +53,10 @@ const Portfolio = () => {
     {
       id: 6,
       title: 'Swara Sustainable Jewellery',
-      category: 'Ads',
-      thumbnail: 'https://img.youtube.com/vi/AhNwHU0S8Xk/maxresdefault.jpg',
+      category: 'VORIQ PROMO',
+      thumbnail: 'https://img.youtube.com/vi/2O-a4Hs98yw/maxresdefault.jpg',
       duration: '3:15',
-      videoUrl: 'https://www.youtube.com/watch?v=AhNwHU0S8Xk'
+      videoUrl: 'https://www.youtube.com/watch?v=2O-a4Hs98yw'
     }
   ];
 
