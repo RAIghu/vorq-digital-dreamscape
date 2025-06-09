@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import { Card, CardContent } from '@/components/ui/card';
@@ -5,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, Instagram, Youtube, Facebook } from 'lucide-react';
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -12,18 +14,22 @@ const Contact = () => {
     company: '',
     message: ''
   });
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     // Handle form submission here
   };
-  return <div className="min-h-screen cinematic-gradient">
+
+  return (
+    <div className="min-h-screen cinematic-gradient">
       <Navigation />
       
       <div className="container mx-auto px-6 pt-24 pb-16">
@@ -120,7 +126,7 @@ const Contact = () => {
                   <a href="#" className="w-12 h-12 bg-primary/20 border border-primary rounded-lg flex items-center justify-center hover:bg-primary hover:text-black transition-all duration-300">
                     <Instagram className="w-5 h-5" />
                   </a>
-                  <a href="#" className="w-12 h-12 bg-primary/20 border border-primary rounded-lg flex items-center justify-center hover:bg-primary hover:text-black transition-all duration-300">
+                  <a href="https://www.youtube.com/@DREAD_FEED" target="_blank" rel="noopener noreferrer" className="w-12 h-12 bg-primary/20 border border-primary rounded-lg flex items-center justify-center hover:bg-primary hover:text-black transition-all duration-300">
                     <Youtube className="w-5 h-5" />
                   </a>
                   <a href="#" className="w-12 h-12 bg-primary/20 border border-primary rounded-lg flex items-center justify-center hover:bg-primary hover:text-black transition-all duration-300">
@@ -151,6 +157,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default Contact;
