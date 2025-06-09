@@ -18,7 +18,7 @@ const Portfolio = () => {
     },
     {
       id: 2,
-      title: 'Neural Dreams',
+      title: 'Silver Stone Luxury Jewellery',
       category: 'Shorts',
       thumbnail: 'https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?w=500&h=300&fit=crop',
       duration: '3:45'
