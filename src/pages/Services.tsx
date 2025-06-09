@@ -1,0 +1,88 @@
+
+import Navigation from '@/components/Navigation';
+import { Card, CardContent } from '@/components/ui/card';
+
+const Services = () => {
+  const services = [
+    {
+      title: 'Pre-production',
+      description: 'AI-powered script development, storyboarding, and creative conceptualization. We use advanced language models to refine narratives and generate compelling visual concepts.',
+      features: ['Script Analysis & Enhancement', 'AI Storyboard Generation', 'Concept Visualization', 'Character Development']
+    },
+    {
+      title: 'Production',
+      description: 'Cutting-edge filming techniques combined with real-time AI assistance for optimal shot composition, lighting, and performance capture.',
+      features: ['AI-Assisted Cinematography', 'Real-time Performance Analysis', 'Automated Camera Movements', 'Smart Lighting Systems']
+    },
+    {
+      title: 'Post-production',
+      description: 'Revolutionary AI-driven editing, color grading, and visual effects that push the boundaries of what\'s possible in post-production.',
+      features: ['AI Video Editing', 'Neural Color Grading', 'Automated VFX Generation', 'Smart Audio Enhancement']
+    }
+  ];
+
+  return (
+    <div className="min-h-screen cinematic-gradient">
+      <Navigation />
+      
+      <div className="container mx-auto px-6 pt-24 pb-16">
+        <div className="text-center mb-16">
+          <h1 className="font-orbitron font-bold text-5xl md:text-6xl mb-6 text-white">
+            Services
+          </h1>
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+            End-to-end AI-powered film production services that redefine storytelling
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {services.map((service, index) => (
+            <Card key={service.title} className="glass-effect border-primary/20 group hover:border-primary/40 transition-all duration-300">
+              <CardContent className="p-8">
+                <div className="mb-6">
+                  <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4 group-hover:animate-glow">
+                    <span className="text-black font-bold text-xl">{index + 1}</span>
+                  </div>
+                  <h3 className="font-orbitron font-bold text-2xl mb-4 text-white">{service.title}</h3>
+                  <p className="text-gray-300 mb-6 leading-relaxed">{service.description}</p>
+                </div>
+                
+                <div className="space-y-3">
+                  {service.features.map((feature, featureIndex) => (
+                    <div key={featureIndex} className="flex items-center">
+                      <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                      <span className="text-gray-400">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <Card className="glass-effect border-primary/20 max-w-4xl mx-auto">
+            <CardContent className="p-12">
+              <h2 className="font-orbitron font-bold text-3xl mb-6 text-white">
+                Ready to Create Something Extraordinary?
+              </h2>
+              <p className="text-xl text-gray-300 mb-8">
+                Let's discuss how VORIQ can bring your vision to life with the power of AI
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105">
+                  Start a Project
+                </button>
+                <button className="border border-primary text-primary hover:bg-primary hover:text-black font-semibold px-8 py-3 rounded-lg transition-all duration-300">
+                  View Pricing
+                </button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Services;
