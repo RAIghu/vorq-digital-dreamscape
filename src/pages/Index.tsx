@@ -1,23 +1,60 @@
-
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
+import { useState } from 'react';
+import { VolumeX, Volume2 } from 'lucide-react';
 
 const Index = () => {
-  return <div className="min-h-screen relative overflow-hidden">
+  const [isMuted, setIsMuted] = useState(true);
+  const [showControls, setShowControls] = useState(false);
+
+  const toggleMute = () => {
+    setIsMuted(!isMuted);
+    // We'll need to reload the iframe with the new mute parameter
+    const iframe = document.querySelector('#background-video') as HTMLIFrameElement;
+    if (iframe) {
+      const currentSrc = iframe.src;
+      const newSrc = currentSrc.replace(/mute=[01]/, `mute=${!isMuted ? 1 : 0}`);
+      iframe.src = newSrc;
+    }
+  };
+
+  return (
+    <div className="min-h-screen relative overflow-hidden">
       <Navigation />
       
       {/* YouTube Video Background */}
-      <div className="absolute inset-0 z-0">
+      <div 
+        className="absolute inset-0 z-0"
+        onMouseEnter={() => setShowControls(true)}
+        onMouseLeave={() => setShowControls(false)}
+      >
         <iframe 
+          id="background-video"
           className="w-full h-full object-cover"
-          src="https://www.youtube.com/embed/2O-a4Hs98yw?autoplay=1&mute=1&loop=1&playlist=2O-a4Hs98yw&controls=0&showinfo=0&rel=0&modestbranding=1&start=0&enablejsapi=1&origin=window.location.hostname"
+          src={`https://www.youtube.com/embed/2O-a4Hs98yw?autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=2O-a4Hs98yw&controls=0&showinfo=0&rel=0&modestbranding=1&start=0&enablejsapi=1&origin=${window.location.hostname}`}
           title="VORIQ Background Video"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           style={{ pointerEvents: 'none' }}
         />
+        
+        {/* Audio Control Button */}
+        {showControls && (
+          <div className="absolute top-4 right-4 z-20">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleMute}
+              className="glass-effect text-foreground hover:text-primary transition-all duration-300"
+              style={{ pointerEvents: 'auto' }}
+            >
+              {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+            </Button>
+          </div>
+        )}
+        
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
 
@@ -47,7 +84,8 @@ const Index = () => {
           <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-bounce"></div>
         </div>
       </div>
-    </div>;
+    </div>
+  );
 };
 
 export default Index;
