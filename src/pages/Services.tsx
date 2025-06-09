@@ -58,7 +58,7 @@ const Services = () => {
                 Let's discuss how VORIQ can bring your vision to life with the power of AI
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105">Contact US</button>
+                <button className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105">Contact Us</button>
                 
               </div>
             </CardContent>
