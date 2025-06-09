@@ -15,7 +15,7 @@ const Services = () => {
     description: 'Revolutionary AI-driven editing, color grading, and visual effects that push the boundaries of what\'s possible in post-production.',
     features: ['AI Video Editing', 'Neural Color Grading', 'Automated VFX Generation', 'Smart Audio Enhancement', 'AI audio dubbing in multiple languages', 'AI Voice Overs and Dialogues']
   }];
-  const filmCategories = ['Ad Films', 'Brand Videos', 'Short Films', 'Music Videos', 'Web Series', 'Documentaries', 'Feature Length Films'];
+  const filmCategories = ['Ad Films', 'Short Films', 'Music Videos', 'Web Series', 'Documentaries', 'Feature Length Films'];
   return <div className="min-h-screen cinematic-gradient">
       <Navigation />
       
