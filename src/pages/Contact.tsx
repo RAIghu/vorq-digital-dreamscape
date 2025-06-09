@@ -5,7 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Mail, Instagram, Youtube, Facebook } from 'lucide-react';
+import { Mail, Instagram, Youtube, Linkedin } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -69,7 +69,7 @@ const Contact = () => {
                     <Youtube className="w-5 h-5" />
                   </a>
                   <a href="#" className="w-12 h-12 bg-primary/20 border border-primary rounded-lg flex items-center justify-center hover:bg-primary hover:text-black transition-all duration-300">
-                    <Facebook className="w-5 h-5" />
+                    <Linkedin className="w-5 h-5" />
                   </a>
                 </div>
 
