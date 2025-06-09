@@ -1,5 +1,7 @@
+
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import Navigation from '@/components/Navigation';
 
 const Portfolio = () => {
@@ -125,7 +127,14 @@ const Portfolio = () => {
               </div>
 
               <div className="p-6">
-                <h3 className="font-semibold text-xl mb-2 text-white">{item.title}</h3>
+                <div className="flex items-start justify-between mb-3">
+                  <h3 className="font-semibold text-xl text-white">{item.title}</h3>
+                  {item.id === 2 && (
+                    <Badge variant="secondary" className="bg-accent/20 text-accent border-accent/30 text-xs">
+                      Award winning film
+                    </Badge>
+                  )}
+                </div>
                 <span className="inline-block bg-primary/20 text-primary px-3 py-1 rounded-full text-sm">
                   {item.category}
                 </span>
