@@ -1,7 +1,10 @@
+
 import Navigation from '@/components/Navigation';
 import { Card, CardContent } from '@/components/ui/card';
+
 const About = () => {
-  return <div className="min-h-screen cinematic-gradient">
+  return (
+    <div className="min-h-screen cinematic-gradient">
       <Navigation />
       
       <div className="container mx-auto px-6 pt-24 pb-16">
@@ -115,31 +118,9 @@ const About = () => {
             </div>
           </CardContent>
         </Card>
-
-        {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
-          {[{
-          number: '50+',
-          label: 'Projects Completed'
-        }, {
-          number: '15+',
-          label: 'Festival Awards'
-        }, {
-          number: '100M+',
-          label: 'Views Generated'
-        }, {
-          number: '25+',
-          label: 'Global Clients'
-        }].map((stat, index) => <div key={index} className="text-center">
-              <div className="text-4xl md:text-5xl font-orbitron font-bold text-primary mb-2">
-                {stat.number}
-              </div>
-              <div className="text-gray-300 text-sm md:text-base">
-                {stat.label}
-              </div>
-            </div>)}
-        </div>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default About;
