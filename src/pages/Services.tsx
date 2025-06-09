@@ -11,7 +11,7 @@ const Services = () => {
     {
       title: 'Production',
       description: 'Cutting-edge filming techniques combined with real-time AI assistance for optimal shot composition, lighting, and performance capture.',
-      features: ['AI assisted motion capture', 'AI augmented virtual productions', 'AI assisted Performance capture', 'Mixing AI workflow with traditional film production']
+      features: ['AI assisted motion capture', 'AI augmented virtual productions', 'AI assisted Performance capture', 'Mixing AI workflow with traditional film production', 'AI Pre-Visualisations of complex shots']
     },
     {
       title: 'Post-production',
