@@ -13,7 +13,7 @@ const Portfolio = () => {
       title: 'AI Fashion Commercial',
       category: 'Ads',
       thumbnail: 'https://img.youtube.com/vi/W4IDyirE88M/maxresdefault.jpg',
-      duration: '1:30',
+      duration: '4:01',
       videoUrl: 'https://youtu.be/W4IDyirE88M?si=VmrpqKvAtgGXqJsR'
     },
     {
