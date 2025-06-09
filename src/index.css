@@ -16,7 +16,7 @@
     --popover: 10 10% 6%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 193 100% 50%;
+    --primary: 51 100% 50%;
     --primary-foreground: 0 0% 5%;
 
     --secondary: 0 0% 15%;
@@ -33,18 +33,18 @@
 
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 193 100% 50%;
+    --ring: 51 100% 50%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 5%;
     --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 193 100% 50%;
+    --sidebar-primary: 51 100% 50%;
     --sidebar-primary-foreground: 0 0% 5%;
     --sidebar-accent: 0 0% 10%;
     --sidebar-accent-foreground: 0 0% 90%;
     --sidebar-border: 0 0% 15%;
-    --sidebar-ring: 193 100% 50%;
+    --sidebar-ring: 51 100% 50%;
   }
 
   * {
@@ -65,12 +65,12 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: hsl(193 100% 50%);
+    background: hsl(51 100% 50%);
     border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(193 100% 60%);
+    background: hsl(51 100% 60%);
   }
 }
 
@@ -80,7 +80,7 @@
   }
   
   .text-glow {
-    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
   }
   
   .glass-effect {

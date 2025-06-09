@@ -71,7 +71,7 @@ export default {
 				'cinematic': {
 					'dark': '#0a0a0a',
 					'darker': '#050505',
-					'accent': '#00d4ff',
+					'accent': '#ffd700',
 					'gold': '#ffd700',
 					'silver': '#c0c0c0',
 				}
@@ -113,8 +113,8 @@ export default {
 					'100%': { transform: 'translateX(0)' }
 				},
 				'glow': {
-					'0%, 100%': { boxShadow: '0 0 20px rgba(0, 212, 255, 0.3)' },
-					'50%': { boxShadow: '0 0 30px rgba(0, 212, 255, 0.6)' }
+					'0%, 100%': { boxShadow: '0 0 20px rgba(255, 215, 0, 0.3)' },
+					'50%': { boxShadow: '0 0 30px rgba(255, 215, 0, 0.6)' }
 				}
 			},
 			animation: {
