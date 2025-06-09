@@ -23,7 +23,7 @@ const Navigation = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="font-bebas font-bold text-2xl text-primary hover:text-glow transition-all duration-300 uppercase tracking-wider">
+          <Link to="/" className="font-agency font-bold text-2xl text-primary hover:text-glow transition-all duration-300 uppercase tracking-wider">
             VORIQ
           </Link>
 
