@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import Navigation from '@/components/Navigation';
@@ -13,8 +12,9 @@ const Portfolio = () => {
       id: 1,
       title: 'AI Fashion Commercial',
       category: 'Ads',
-      thumbnail: 'https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=500&h=300&fit=crop',
-      duration: '1:30'
+      thumbnail: 'https://img.youtube.com/vi/W4IDyirE88M/maxresdefault.jpg',
+      duration: '1:30',
+      videoUrl: 'https://youtu.be/W4IDyirE88M?si=VmrpqKvAtgGXqJsR'
     },
     {
       id: 2,
@@ -57,6 +57,12 @@ const Portfolio = () => {
     ? portfolioItems 
     : portfolioItems.filter(item => item.category === activeFilter);
 
+  const handleItemClick = (item: typeof portfolioItems[0]) => {
+    if (item.videoUrl) {
+      window.open(item.videoUrl, '_blank');
+    }
+  };
+
   return (
     <div className="min-h-screen cinematic-gradient">
       <Navigation />
@@ -95,6 +101,7 @@ const Portfolio = () => {
             <div
               key={item.id}
               className="group relative bg-card rounded-lg overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer"
+              onClick={() => handleItemClick(item)}
             >
               <div className="relative">
                 <img
