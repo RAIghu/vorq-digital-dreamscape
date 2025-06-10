@@ -42,16 +42,17 @@ const Index = () => {
   };
 
   const togglePlayPause = () => {
-    setIsPaused(!isPaused);
     const iframe = document.querySelector('#background-video') as HTMLIFrameElement;
     if (iframe && iframe.contentWindow) {
       try {
         if (isPaused) {
           // Currently paused, so play
           iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+          setIsPaused(false);
         } else {
           // Currently playing, so pause
           iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+          setIsPaused(true);
         }
       } catch (error) {
         console.log('Error controlling video:', error);
@@ -139,9 +140,9 @@ const Index = () => {
         </div>
       </div>
 
-      {/* View Portfolio button when unmuted - positioned higher in the video area */}
+      {/* View Portfolio button when unmuted - positioned at bottom-40 */}
       {!isMuted && (
-        <div className="absolute bottom-48 right-8 z-10 flex flex-col items-end gap-4">
+        <div className="absolute bottom-40 right-8 z-10 flex flex-col items-end gap-4">
           <Link to="/portfolio">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-4 text-lg animate-glow transition-all duration-300 hover:scale-105">
               View Portfolio
