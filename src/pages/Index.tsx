@@ -33,6 +33,10 @@ const Index = () => {
       const currentSrc = iframe.src;
       const newSrc = currentSrc.replace(/mute=[01]/, `mute=${!isMuted ? 1 : 0}`);
       iframe.src = newSrc;
+      // When unmuting (video restarts), set to playing state
+      if (isMuted) {
+        setIsPaused(false);
+      }
     }
     setShowControls(false);
   };
@@ -40,12 +44,17 @@ const Index = () => {
   const togglePlayPause = () => {
     setIsPaused(!isPaused);
     const iframe = document.querySelector('#background-video') as HTMLIFrameElement;
-    if (iframe) {
-      // Send postMessage to control YouTube video
-      if (isPaused) {
-        iframe.contentWindow?.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-      } else {
-        iframe.contentWindow?.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+    if (iframe && iframe.contentWindow) {
+      try {
+        if (isPaused) {
+          // Currently paused, so play
+          iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        } else {
+          // Currently playing, so pause
+          iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+        }
+      } catch (error) {
+        console.log('Error controlling video:', error);
       }
     }
     setShowControls(false);
@@ -130,9 +139,9 @@ const Index = () => {
         </div>
       </div>
 
-      {/* View Portfolio button when unmuted - higher position in bottom right */}
+      {/* View Portfolio button when unmuted - positioned higher in the video area */}
       {!isMuted && (
-        <div className="absolute bottom-32 right-8 z-10 flex flex-col items-end gap-4">
+        <div className="absolute bottom-48 right-8 z-10 flex flex-col items-end gap-4">
           <Link to="/portfolio">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-4 text-lg animate-glow transition-all duration-300 hover:scale-105">
               View Portfolio
