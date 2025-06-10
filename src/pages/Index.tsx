@@ -26,6 +26,26 @@ const Index = () => {
     };
   }, [showControls]);
 
+  // Listen for YouTube API messages
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      if (event.origin !== 'https://www.youtube.com') return;
+      
+      try {
+        const data = JSON.parse(event.data);
+        if (data.event === 'video-progress') {
+          // Video is playing
+          setIsPaused(false);
+        }
+      } catch (error) {
+        console.log('Error parsing YouTube message:', error);
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
+  }, []);
+
   const toggleMute = () => {
     setIsMuted(!isMuted);
     const iframe = document.querySelector('#background-video') as HTMLIFrameElement;
@@ -44,18 +64,14 @@ const Index = () => {
   const togglePlayPause = () => {
     const iframe = document.querySelector('#background-video') as HTMLIFrameElement;
     if (iframe && iframe.contentWindow) {
-      try {
-        if (isPaused) {
-          // Currently paused, so play
-          iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
-          setIsPaused(false);
-        } else {
-          // Currently playing, so pause
-          iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
-          setIsPaused(true);
-        }
-      } catch (error) {
-        console.log('Error controlling video:', error);
+      if (isPaused) {
+        // Currently paused, so play
+        iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        setIsPaused(false);
+      } else {
+        // Currently playing, so pause
+        iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+        setIsPaused(true);
       }
     }
     setShowControls(false);
@@ -82,7 +98,7 @@ const Index = () => {
         <iframe 
           id="background-video"
           className="w-full h-full object-cover"
-          src={`https://www.youtube.com/embed/2O-a4Hs98yw?autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=2O-a4Hs98yw&controls=0&showinfo=0&rel=0&modestbranding=1&start=0&enablejsapi=1&origin=${window.location.hostname}`}
+          src={`https://www.youtube.com/embed/2O-a4Hs98yw?autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=2O-a4Hs98yw&controls=0&showinfo=0&rel=0&modestbranding=1&start=0&enablejsapi=1&origin=${window.location.origin}`}
           title="VORIQ Background Video"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
