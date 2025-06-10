@@ -20,7 +20,7 @@ const About = () => {
             <CardContent className="p-8">
               <div className="text-center mb-8">
                 <div className="w-32 h-32 mx-auto mb-6 relative">
-                  <img alt="Raghu Naik" className="w-full h-full object-cover rounded-full border-2 border-primary" src="/lovable-uploads/f8f7f909-0409-4af0-aa43-96084aff95e7.png" />
+                  <img alt="Raghu Naik" src="/lovable-uploads/f8f7f909-0409-4af0-aa43-96084aff95e7.png" className="w-full h-full rounded-full border-2 border-primary object-cover" />
                 </div>
                 <h2 className="font-orbitron font-bold text-3xl mb-2 text-white">Raghu Naik</h2>
                 <p className="text-primary text-lg">Founder &amp; CEO</p>
