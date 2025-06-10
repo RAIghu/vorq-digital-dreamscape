@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
@@ -50,7 +49,7 @@ const Index = () => {
       <div className="absolute inset-0 z-0">
         <iframe
           className="w-full h-full object-cover"
-          src={`https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=${isMuted ? 1 : 0}&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&loop=1&playlist=dQw4w9WgXcQ&start=0&end=0${isPaused ? '&autoplay=0' : ''}`}
+          src={`https://www.youtube.com/embed/2O-a4Hs98yw?autoplay=1&mute=${isMuted ? 1 : 0}&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&loop=1&playlist=2O-a4Hs98yw&start=0&end=0${isPaused ? '&autoplay=0' : ''}`}
           title="Background Video"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
