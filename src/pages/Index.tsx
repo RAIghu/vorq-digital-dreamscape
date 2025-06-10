@@ -18,15 +18,22 @@ const Index = () => {
       const newSrc = currentSrc.replace(/mute=[01]/, `mute=${!isMuted ? 1 : 0}`);
       iframe.src = newSrc;
     }
-    // Hide controls after toggling
-    setTimeout(() => setShowControls(false), 1000);
+    // Don't hide controls immediately after toggling
+  };
+
+  const handleMouseLeave = (e: React.MouseEvent) => {
+    // Only hide if we're not hovering over the volume button
+    const relatedTarget = e.relatedTarget as Element;
+    if (!relatedTarget?.closest('[data-volume-control]')) {
+      setShowControls(false);
+    }
   };
 
   return (
     <div 
       className="min-h-screen relative overflow-hidden"
       onMouseEnter={() => setShowControls(true)}
-      onMouseLeave={() => setShowControls(false)}
+      onMouseLeave={handleMouseLeave}
     >
       <Navigation />
       
@@ -68,25 +75,31 @@ const Index = () => {
             
             {/* Volume Control - Shows on hover */}
             {showControls && (
-              <Button
-                variant="ghost"
-                size="lg"
-                onClick={toggleMute}
-                className="glass-effect text-foreground hover:text-primary transition-all duration-300 border border-primary/30 hover:border-primary/60 animate-fade-in z-20"
-                style={{ pointerEvents: 'auto' }}
+              <div 
+                data-volume-control
+                onMouseEnter={() => setShowControls(true)}
+                onMouseLeave={() => setShowControls(false)}
               >
-                {isMuted ? (
-                  <>
-                    <VolumeX size={24} className="mr-2" />
-                    <span>Unmute Video</span>
-                  </>
-                ) : (
-                  <>
-                    <Volume2 size={24} className="mr-2" />
-                    <span>Mute Video</span>
-                  </>
-                )}
-              </Button>
+                <Button
+                  variant="ghost"
+                  size="lg"
+                  onClick={toggleMute}
+                  className="glass-effect text-foreground hover:text-primary transition-all duration-300 border border-primary/30 hover:border-primary/60 animate-fade-in z-20"
+                  style={{ pointerEvents: 'auto' }}
+                >
+                  {isMuted ? (
+                    <>
+                      <VolumeX size={24} className="mr-2" />
+                      <span>Unmute Video</span>
+                    </>
+                  ) : (
+                    <>
+                      <Volume2 size={24} className="mr-2" />
+                      <span>Mute Video</span>
+                    </>
+                  )}
+                </Button>
+              </div>
             )}
           </div>
         </div>
