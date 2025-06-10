@@ -91,8 +91,8 @@ const Index = () => {
             </>
           )}
           
-          <div className="flex flex-col items-center gap-6">
-            {/* View Portfolio button - always visible */}
+          <div className={`flex flex-col items-center gap-6 ${!isMuted ? 'mt-12' : ''}`}>
+            {/* View Portfolio button - always visible in same position */}
             <Link to="/portfolio">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-4 text-lg animate-glow transition-all duration-300 hover:scale-105">
                 View Portfolio
