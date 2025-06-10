@@ -7,6 +7,7 @@ import { VolumeX, Volume2 } from 'lucide-react';
 
 const Index = () => {
   const [isMuted, setIsMuted] = useState(true);
+  const [showControls, setShowControls] = useState(false);
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
@@ -17,6 +18,8 @@ const Index = () => {
       const newSrc = currentSrc.replace(/mute=[01]/, `mute=${!isMuted ? 1 : 0}`);
       iframe.src = newSrc;
     }
+    // Hide controls after toggling
+    setShowControls(false);
   };
 
   return (
@@ -24,7 +27,11 @@ const Index = () => {
       <Navigation />
       
       {/* YouTube Video Background */}
-      <div className="absolute inset-0 z-0">
+      <div 
+        className="absolute inset-0 z-0"
+        onMouseEnter={() => setShowControls(true)}
+        onMouseLeave={() => setShowControls(false)}
+      >
         <iframe 
           id="background-video"
           className="w-full h-full object-cover"
@@ -59,25 +66,28 @@ const Index = () => {
               </Button>
             </Link>
             
-            {/* Volume Control - Now prominently placed below the button */}
-            <Button
-              variant="ghost"
-              size="lg"
-              onClick={toggleMute}
-              className="glass-effect text-foreground hover:text-primary transition-all duration-300 border border-primary/30 hover:border-primary/60"
-            >
-              {isMuted ? (
-                <>
-                  <VolumeX size={24} className="mr-2" />
-                  <span>Unmute Video</span>
-                </>
-              ) : (
-                <>
-                  <Volume2 size={24} className="mr-2" />
-                  <span>Mute Video</span>
-                </>
-              )}
-            </Button>
+            {/* Volume Control - Shows on hover */}
+            {showControls && (
+              <Button
+                variant="ghost"
+                size="lg"
+                onClick={toggleMute}
+                className="glass-effect text-foreground hover:text-primary transition-all duration-300 border border-primary/30 hover:border-primary/60 animate-fade-in"
+                style={{ pointerEvents: 'auto' }}
+              >
+                {isMuted ? (
+                  <>
+                    <VolumeX size={24} className="mr-2" />
+                    <span>Unmute Video</span>
+                  </>
+                ) : (
+                  <>
+                    <Volume2 size={24} className="mr-2" />
+                    <span>Mute Video</span>
+                  </>
+                )}
+              </Button>
+            )}
           </div>
         </div>
       </div>
