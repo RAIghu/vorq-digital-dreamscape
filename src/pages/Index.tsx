@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
@@ -77,6 +78,7 @@ const Index = () => {
   };
 
   const handleVideoLoad = () => {
+    console.log('Video loaded successfully:', videoSrc);
     if (videoRef.current) {
       videoRef.current.muted = isMuted;
       videoRef.current.loop = true;
@@ -84,6 +86,11 @@ const Index = () => {
         videoRef.current.play();
       }
     }
+  };
+
+  const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
+    console.error('Video failed to load:', videoSrc, e);
+    console.log('Error details:', e.currentTarget.error);
   };
 
   return (
@@ -108,6 +115,7 @@ const Index = () => {
           loop
           muted={isMuted}
           onLoadedData={handleVideoLoad}
+          onError={handleVideoError}
           onPlay={() => setIsPaused(false)}
           onPause={() => setIsPaused(true)}
         >
