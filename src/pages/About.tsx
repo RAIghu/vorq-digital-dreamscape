@@ -1,7 +1,9 @@
 import Navigation from '@/components/Navigation';
 import { Card, CardContent } from '@/components/ui/card';
+
 const About = () => {
-  return <div className="min-h-screen cinematic-gradient">
+  return (
+    <div className="min-h-screen cinematic-gradient">
       <Navigation />
       
       <div className="container mx-auto px-6 pt-24 pb-16">
@@ -20,7 +22,11 @@ const About = () => {
             <CardContent className="p-8">
               <div className="text-center mb-8">
                 <div className="w-32 h-32 mx-auto mb-6 relative">
-                  <img alt="Raghu Naik" src="/lovable-uploads/f8f7f909-0409-4af0-aa43-96084aff95e7.png" className="w-full h-full rounded-full border-2 border-primary object-cover" />
+                  <img 
+                    alt="Raghu Naik" 
+                    src="/lovable-uploads/f8f7f909-0409-4af0-aa43-96084aff95e7.png" 
+                    className="w-full h-full rounded-full border-2 border-primary object-cover object-top" 
+                  />
                 </div>
                 <h2 className="font-orbitron font-bold text-3xl mb-2 text-white">Raghu Naik</h2>
                 <p className="text-primary text-lg">Founder &amp; CEO</p>
@@ -28,8 +34,8 @@ const About = () => {
               
               <div className="space-y-4 text-gray-300">
                 <p>Raghu Naik is a visionary filmmaker and AI storyteller who founded VORIQ to redefine how stories are told through artificial intelligence—without sacrificing creative depth or artistic integrity. With a unique blend of creative instinct and technical expertise, he is at the forefront of a new wave of AI-augmented cinema.</p>
-                <p>With over 13 years in the film industry, Raghu has collaborated with some of India’s leading production houses including Roy Kapur Films, RSVP, Jio, Times Studio, Mukta Arts, Red Chillies entertainment, among others. His ability to bridge technology and narrative has helped bring complex ideas to screen with bold visual imagination.</p>
-                <p>Raghu’s work has been featured at major international festivals such as Cannes (France), Lift-Off Global Network (UK), Project Odyssey (USA), DUST (USA), Turkiye AI Film Festival, Czech Ai festival and leading Indian festivals like MAMI Mumbai, Kerala, Bengaluru, and Jaipur. Through VORIQ, he continues to push the boundaries of storytelling and gain global recognition for innovation in AI-driven filmmaking.</p>
+                <p>With over 13 years in the film industry, Raghu has collaborated with some of India's leading production houses including Roy Kapur Films, RSVP, Jio, Times Studio, Mukta Arts, Red Chillies entertainment, among others. His ability to bridge technology and narrative has helped bring complex ideas to screen with bold visual imagination.</p>
+                <p>Raghu's work has been featured at major international festivals such as Cannes (France), Lift-Off Global Network (UK), Project Odyssey (USA), DUST (USA), Turkiye AI Film Festival, Czech Ai festival and leading Indian festivals like MAMI Mumbai, Kerala, Bengaluru, and Jaipur. Through VORIQ, he continues to push the boundaries of storytelling and gain global recognition for innovation in AI-driven filmmaking.</p>
               </div>
             </CardContent>
           </Card>
@@ -110,6 +116,8 @@ const About = () => {
           </CardContent>
         </Card>
       </div>
-    </div>;
+    </div>
+  );
 };
+
 export default About;
