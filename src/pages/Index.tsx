@@ -2,17 +2,13 @@
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
-import { useState, useEffect, useRef } from 'react';
-import { VolumeX, Volume2, Play, Pause, Upload } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { VolumeX, Volume2, Play, Pause } from 'lucide-react';
 
 const Index = () => {
   const [isMuted, setIsMuted] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
   const [showControls, setShowControls] = useState(false);
-  const [videoSrc, setVideoSrc] = useState<string>('/default-background.mp4'); // Default embedded video
-  const [isDefaultVideo, setIsDefaultVideo] = useState(true);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -28,44 +24,13 @@ const Index = () => {
     };
   }, [showControls]);
 
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
-    if (file && file.type.startsWith('video/')) {
-      const url = URL.createObjectURL(file);
-      setVideoSrc(url);
-      setIsDefaultVideo(false);
-      setIsPaused(false);
-    }
-  };
-
-  const triggerFileUpload = () => {
-    fileInputRef.current?.click();
-  };
-
-  const resetToDefault = () => {
-    setVideoSrc('/default-background.mp4');
-    setIsDefaultVideo(true);
-    setIsPaused(false);
-  };
-
   const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
+    setIsMuted(!isMuted);
     setShowControls(false);
   };
 
   const togglePlayPause = () => {
-    if (videoRef.current) {
-      if (isPaused) {
-        videoRef.current.play();
-        setIsPaused(false);
-      } else {
-        videoRef.current.pause();
-        setIsPaused(true);
-      }
-    }
+    setIsPaused(!isPaused);
     setShowControls(false);
   };
 
@@ -77,51 +42,20 @@ const Index = () => {
     setShowControls(false);
   };
 
-  const handleVideoLoad = () => {
-    console.log('Video loaded successfully:', videoSrc);
-    if (videoRef.current) {
-      videoRef.current.muted = isMuted;
-      videoRef.current.loop = true;
-      if (!isPaused) {
-        videoRef.current.play();
-      }
-    }
-  };
-
-  const handleVideoError = (e: React.SyntheticEvent<HTMLVideoElement, Event>) => {
-    console.error('Video failed to load:', videoSrc, e);
-    console.log('Error details:', e.currentTarget.error);
-  };
-
   return (
     <div className="min-h-screen relative overflow-hidden" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
       <Navigation />
       
-      {/* Hidden file input */}
-      <input
-        ref={fileInputRef}
-        type="file"
-        accept="video/*"
-        onChange={handleFileUpload}
-        className="hidden"
-      />
-      
-      {/* Video Background */}
+      {/* YouTube Video Background */}
       <div className="absolute inset-0 z-0">
-        <video
-          ref={videoRef}
-          className="w-full h-full object-contain bg-black"
-          autoPlay
-          loop
-          muted={isMuted}
-          onLoadedData={handleVideoLoad}
-          onError={handleVideoError}
-          onPlay={() => setIsPaused(false)}
-          onPause={() => setIsPaused(true)}
-        >
-          <source src={videoSrc} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <iframe
+          className="w-full h-full object-cover"
+          src={`https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=${isMuted ? 1 : 0}&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&loop=1&playlist=dQw4w9WgXcQ&start=0&end=0${isPaused ? '&autoplay=0' : ''}`}
+          title="Background Video"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        />
         
         {/* Overlay that appears/disappears based on mute state */}
         {isMuted && <div className="absolute inset-0 bg-black/60"></div>}
@@ -165,27 +99,6 @@ const Index = () => {
                     </Button>
                   </div>
                 )}
-                
-                {/* Video controls */}
-                <div className="flex gap-2">
-                  <Button 
-                    variant="outline" 
-                    onClick={triggerFileUpload}
-                    className="border-primary text-primary hover:bg-primary hover:text-black pointer-events-auto"
-                  >
-                    <Upload size={16} className="mr-2" />
-                    Change Background Video
-                  </Button>
-                  {!isDefaultVideo && (
-                    <Button 
-                      variant="outline" 
-                      onClick={resetToDefault}
-                      className="border-primary text-primary hover:bg-primary hover:text-black pointer-events-auto"
-                    >
-                      Reset to Default
-                    </Button>
-                  )}
-                </div>
               </div>
             </>
           )}
