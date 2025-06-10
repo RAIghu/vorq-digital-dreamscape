@@ -19,19 +19,19 @@ const Index = () => {
       iframe.src = newSrc;
     }
     // Hide controls after toggling
-    setShowControls(false);
+    setTimeout(() => setShowControls(false), 1000);
   };
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
+    <div 
+      className="min-h-screen relative overflow-hidden"
+      onMouseEnter={() => setShowControls(true)}
+      onMouseLeave={() => setShowControls(false)}
+    >
       <Navigation />
       
       {/* YouTube Video Background */}
-      <div 
-        className="absolute inset-0 z-0"
-        onMouseEnter={() => setShowControls(true)}
-        onMouseLeave={() => setShowControls(false)}
-      >
+      <div className="absolute inset-0 z-0">
         <iframe 
           id="background-video"
           className="w-full h-full object-cover"
@@ -72,7 +72,7 @@ const Index = () => {
                 variant="ghost"
                 size="lg"
                 onClick={toggleMute}
-                className="glass-effect text-foreground hover:text-primary transition-all duration-300 border border-primary/30 hover:border-primary/60 animate-fade-in"
+                className="glass-effect text-foreground hover:text-primary transition-all duration-300 border border-primary/30 hover:border-primary/60 animate-fade-in z-20"
                 style={{ pointerEvents: 'auto' }}
               >
                 {isMuted ? (
