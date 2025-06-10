@@ -7,7 +7,6 @@ import { VolumeX, Volume2 } from 'lucide-react';
 
 const Index = () => {
   const [isMuted, setIsMuted] = useState(true);
-  const [showControls, setShowControls] = useState(false);
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
@@ -25,11 +24,7 @@ const Index = () => {
       <Navigation />
       
       {/* YouTube Video Background */}
-      <div 
-        className="absolute inset-0 z-0"
-        onMouseEnter={() => setShowControls(true)}
-        onMouseLeave={() => setShowControls(false)}
-      >
+      <div className="absolute inset-0 z-0">
         <iframe 
           id="background-video"
           className="w-full h-full object-cover"
@@ -40,21 +35,6 @@ const Index = () => {
           allowFullScreen
           style={{ pointerEvents: 'none' }}
         />
-        
-        {/* Audio Control Button */}
-        {showControls && (
-          <div className="absolute top-4 right-4 z-20">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={toggleMute}
-              className="glass-effect text-foreground hover:text-primary transition-all duration-300"
-              style={{ pointerEvents: 'auto' }}
-            >
-              {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
-            </Button>
-          </div>
-        )}
         
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
@@ -71,11 +51,34 @@ const Index = () => {
           <p className="text-lg md:text-xl mb-12 text-gray-300 max-w-2xl mx-auto animate-fade-in">
             Where artificial intelligence meets cinematic excellence. Creating award-winning content that pushes the boundaries of what's possible.
           </p>
-          <Link to="/portfolio">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-4 text-lg animate-glow transition-all duration-300 hover:scale-105">
-              View Portfolio
+          
+          <div className="flex flex-col items-center gap-6">
+            <Link to="/portfolio">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-4 text-lg animate-glow transition-all duration-300 hover:scale-105">
+                View Portfolio
+              </Button>
+            </Link>
+            
+            {/* Volume Control - Now prominently placed below the button */}
+            <Button
+              variant="ghost"
+              size="lg"
+              onClick={toggleMute}
+              className="glass-effect text-foreground hover:text-primary transition-all duration-300 border border-primary/30 hover:border-primary/60"
+            >
+              {isMuted ? (
+                <>
+                  <VolumeX size={24} className="mr-2" />
+                  <span>Unmute Video</span>
+                </>
+              ) : (
+                <>
+                  <Volume2 size={24} className="mr-2" />
+                  <span>Mute Video</span>
+                </>
+              )}
             </Button>
-          </Link>
+          </div>
         </div>
       </div>
 
