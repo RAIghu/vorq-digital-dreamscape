@@ -40,7 +40,7 @@ const Services = () => {
                         <div className="w-3 h-3 bg-black rounded-full"></div>
                       </div>
                       <h3 className="font-semibold text-lg text-white mb-2">{category}</h3>
-                      <p className="text-sm text-gray-400">AI-enhanced production</p>
+                      <p className="text-sm text-gray-400">AI powered Ad films</p>
                     </div>
                   </div>)}
               </div>
