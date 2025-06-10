@@ -18,21 +18,20 @@ const Index = () => {
       const newSrc = currentSrc.replace(/mute=[01]/, `mute=${!isMuted ? 1 : 0}`);
       iframe.src = newSrc;
     }
-    // Don't hide controls immediately after toggling
   };
 
-  const handleMouseLeave = (e: React.MouseEvent) => {
-    // Only hide if we're not hovering over the volume button
-    const relatedTarget = e.relatedTarget as Element;
-    if (!relatedTarget?.closest('[data-volume-control]')) {
-      setShowControls(false);
-    }
+  const handleMouseMove = () => {
+    setShowControls(true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowControls(false);
   };
 
   return (
     <div 
       className="min-h-screen relative overflow-hidden"
-      onMouseEnter={() => setShowControls(true)}
+      onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
       <Navigation />
@@ -50,7 +49,10 @@ const Index = () => {
           style={{ pointerEvents: 'none' }}
         />
         
-        <div className="absolute inset-0 bg-black/60"></div>
+        {/* Overlay that appears/disappears based on mute state */}
+        {isMuted && (
+          <div className="absolute inset-0 bg-black/60"></div>
+        )}
       </div>
 
       {/* Hero Content */}
@@ -67,16 +69,16 @@ const Index = () => {
           </p>
           
           <div className="flex flex-col items-center gap-6">
+            {/* View Portfolio button - always visible */}
             <Link to="/portfolio">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-4 text-lg animate-glow transition-all duration-300 hover:scale-105">
                 View Portfolio
               </Button>
             </Link>
             
-            {/* Volume Control - Shows on hover */}
+            {/* Volume Control - Shows on mouse move */}
             {showControls && (
               <div 
-                data-volume-control
                 onMouseEnter={() => setShowControls(true)}
                 onMouseLeave={() => setShowControls(false)}
               >
