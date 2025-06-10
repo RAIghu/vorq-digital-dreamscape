@@ -11,6 +11,7 @@ const Index = () => {
   const [showControls, setShowControls] = useState(false);
   const [videoSrc, setVideoSrc] = useState<string | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -33,6 +34,10 @@ const Index = () => {
       setVideoSrc(url);
       setIsPaused(false);
     }
+  };
+
+  const triggerFileUpload = () => {
+    fileInputRef.current?.click();
   };
 
   const toggleMute = () => {
@@ -78,6 +83,15 @@ const Index = () => {
     <div className="min-h-screen relative overflow-hidden" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
       <Navigation />
       
+      {/* Hidden file input */}
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept="video/*"
+        onChange={handleFileUpload}
+        className="hidden"
+      />
+      
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         {videoSrc ? (
@@ -105,18 +119,12 @@ const Index = () => {
             <div className="text-center">
               <Upload size={64} className="mx-auto mb-4 text-primary opacity-50" />
               <p className="text-gray-400 mb-4">Upload a video to get started</p>
-              <label htmlFor="video-upload" className="cursor-pointer">
-                <Button className="bg-primary hover:bg-primary/90 text-black font-semibold">
-                  Choose Video File
-                </Button>
-              </label>
-              <input
-                id="video-upload"
-                type="file"
-                accept="video/*"
-                onChange={handleFileUpload}
-                className="hidden"
-              />
+              <Button 
+                onClick={triggerFileUpload}
+                className="bg-primary hover:bg-primary/90 text-black font-semibold pointer-events-auto"
+              >
+                Choose Video File
+              </Button>
             </div>
           </div>
         )}
@@ -163,20 +171,15 @@ const Index = () => {
                 
                 {/* Upload button when no video */}
                 {!videoSrc && (
-                  <label htmlFor="video-upload-hero" className="cursor-pointer">
-                    <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-black">
-                      <Upload size={16} className="mr-2" />
-                      Upload Background Video
-                    </Button>
-                  </label>
+                  <Button 
+                    variant="outline" 
+                    onClick={triggerFileUpload}
+                    className="border-primary text-primary hover:bg-primary hover:text-black pointer-events-auto"
+                  >
+                    <Upload size={16} className="mr-2" />
+                    Upload Background Video
+                  </Button>
                 )}
-                <input
-                  id="video-upload-hero"
-                  type="file"
-                  accept="video/*"
-                  onChange={handleFileUpload}
-                  className="hidden"
-                />
               </div>
             </>
           )}
