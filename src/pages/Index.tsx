@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
@@ -15,7 +16,7 @@ const Index = () => {
     if (showControls) {
       timeout = setTimeout(() => {
         setShowControls(false);
-      }, 3000); // Hide after 3 seconds of no interaction
+      }, 3000);
     }
 
     return () => {
@@ -27,21 +28,26 @@ const Index = () => {
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
-    // We'll need to reload the iframe with the new mute parameter
     const iframe = document.querySelector('#background-video') as HTMLIFrameElement;
     if (iframe) {
       const currentSrc = iframe.src;
       const newSrc = currentSrc.replace(/mute=[01]/, `mute=${!isMuted ? 1 : 0}`);
       iframe.src = newSrc;
     }
-    // Hide controls immediately after clicking
     setShowControls(false);
   };
 
   const togglePlayPause = () => {
     setIsPaused(!isPaused);
-    // For YouTube iframe, we would need YouTube API to control play/pause
-    // For now, we'll just toggle the state
+    const iframe = document.querySelector('#background-video') as HTMLIFrameElement;
+    if (iframe) {
+      // Send postMessage to control YouTube video
+      if (isPaused) {
+        iframe.contentWindow?.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+      } else {
+        iframe.contentWindow?.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+      }
+    }
     setShowControls(false);
   };
 
@@ -86,7 +92,6 @@ const Index = () => {
           {/* Hero text - only show when muted */}
           {isMuted && (
             <>
-              
               <h1 className="font-agency font-black text-6xl md:text-8xl lg:text-9xl mb-6 animate-fade-in text-cinematic-gold uppercase tracking-wider">
                 VORIQ
               </h1>
@@ -112,19 +117,10 @@ const Index = () => {
                       variant="ghost"
                       size="sm"
                       onClick={toggleMute}
-                      className="glass-effect text-foreground hover:text-primary transition-all duration-300 border border-primary/30 hover:border-primary/60 animate-fade-in"
+                      className="glass-effect text-foreground hover:text-primary transition-all duration-300 border border-primary/30 hover:border-primary/60 animate-fade-in h-8 w-8 p-0"
                       style={{ pointerEvents: 'auto' }}
                     >
-                      <VolumeX size={16} />
-                    </Button>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={togglePlayPause}
-                      className="glass-effect text-foreground hover:text-primary transition-all duration-300 border border-primary/30 hover:border-primary/60 animate-fade-in"
-                      style={{ pointerEvents: 'auto' }}
-                    >
-                      {isPaused ? <Play size={16} /> : <Pause size={16} />}
+                      <VolumeX size={14} />
                     </Button>
                   </div>
                 )}
@@ -134,9 +130,9 @@ const Index = () => {
         </div>
       </div>
 
-      {/* View Portfolio button when unmuted - bottom right of video area */}
+      {/* View Portfolio button when unmuted - higher position in bottom right */}
       {!isMuted && (
-        <div className="absolute bottom-16 right-8 z-10 flex flex-col items-end gap-4">
+        <div className="absolute bottom-32 right-8 z-10 flex flex-col items-end gap-4">
           <Link to="/portfolio">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-4 text-lg animate-glow transition-all duration-300 hover:scale-105">
               View Portfolio
@@ -150,19 +146,19 @@ const Index = () => {
                 variant="ghost"
                 size="sm"
                 onClick={toggleMute}
-                className="glass-effect text-foreground hover:text-primary transition-all duration-300 border border-primary/30 hover:border-primary/60 animate-fade-in"
+                className="glass-effect text-foreground hover:text-primary transition-all duration-300 border border-primary/30 hover:border-primary/60 animate-fade-in h-8 w-8 p-0"
                 style={{ pointerEvents: 'auto' }}
               >
-                <Volume2 size={16} />
+                <Volume2 size={14} />
               </Button>
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={togglePlayPause}
-                className="glass-effect text-foreground hover:text-primary transition-all duration-300 border border-primary/30 hover:border-primary/60 animate-fade-in"
+                className="glass-effect text-foreground hover:text-primary transition-all duration-300 border border-primary/30 hover:border-primary/60 animate-fade-in h-8 w-8 p-0"
                 style={{ pointerEvents: 'auto' }}
               >
-                {isPaused ? <Play size={16} /> : <Pause size={16} />}
+                {isPaused ? <Play size={14} /> : <Pause size={14} />}
               </Button>
             </div>
           )}
