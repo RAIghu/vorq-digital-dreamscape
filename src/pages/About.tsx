@@ -23,19 +23,15 @@ const About = () => {
                   <img alt="Raghu Naik" className="w-full h-full object-cover rounded-full border-2 border-primary" src="/lovable-uploads/f8f7f909-0409-4af0-aa43-96084aff95e7.png" />
                 </div>
                 <h2 className="font-orbitron font-bold text-3xl mb-2 text-white">Raghu Naik</h2>
-                <p className="text-primary text-lg">Founder & Creative Director</p>
+                <p className="text-primary text-lg">Founder &amp; CEO</p>
               </div>
               
               <div className="space-y-4 text-gray-300">
                 <p>
                   Raghu Naik is a visionary filmmaker and AI pioneer who founded VORIQ with the belief that artificial intelligence could revolutionize storytelling without compromising artistic integrity.
                 </p>
-                <p>
-                  With over 15 years in film production and a background in machine learning, Raghu bridges the gap between technology and creativity, leading VORIQ to international recognition.
-                </p>
-                <p>
-                  His work has been featured at major film festivals worldwide and has earned numerous accolades for innovation in AI-assisted filmmaking.
-                </p>
+                <p>With over 13 years in film making, working with top film production houses in Mumbai and a background in tech, Raghu bridges the gap between technology and creativity, leading VORIQ to international recognition.</p>
+                <p>His work has been featured at major film festivals worldwide like Cannes -France,  Lift Off festival- England,  Project Odyssey-USA, DUST-USA, Turkeye AI film festival, Czech Republic, MAMI Mumbai, Jaipur, Kerala, Bengaluru film festivals and has earned numerous accolades for innovation in AI-assisted filmmaking.</p>
               </div>
             </CardContent>
           </Card>
