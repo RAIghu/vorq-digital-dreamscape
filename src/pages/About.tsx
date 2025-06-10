@@ -28,8 +28,8 @@ const About = () => {
               
               <div className="space-y-4 text-gray-300">
                 <p>Raghu Naik is a visionary filmmaker and AI storyteller who founded VORIQ to redefine how stories are told through artificial intelligence—without sacrificing creative depth or artistic integrity. With a unique blend of creative instinct and technical expertise, he is at the forefront of a new wave of AI-augmented cinema.</p>
-                <p>With over 13 years in the film industry, Raghu has collaborated with some of India’s leading production houses including Roy Kapur Films, RSVP, Jio Studios, Times Group, and Rakesh Omprakash Mehra Pictures. His ability to bridge technology and narrative has helped bring complex ideas to screen with bold visual imagination.</p>
-                <p>Raghu’s work has been featured at major international festivals such as Cannes (France), Lift-Off Global Network (UK), Project Odyssey (USA), DUST (USA), Turkiye AI Film Festival, and leading Indian festivals like MAMI Mumbai, Kerala, Bengaluru, and Jaipur. Through VORIQ, he continues to push the boundaries of storytelling and gain global recognition for innovation in AI-driven filmmaking.</p>
+                <p>With over 13 years in the film industry, Raghu has collaborated with some of India’s leading production houses including Roy Kapur Films, RSVP, Jio, Times Studio, Mukta Arts, Red Chillies entertainment, among others. His ability to bridge technology and narrative has helped bring complex ideas to screen with bold visual imagination.</p>
+                <p>Raghu’s work has been featured at major international festivals such as Cannes (France), Lift-Off Global Network (UK), Project Odyssey (USA), DUST (USA), Turkiye AI Film Festival, Czech Ai festival and leading Indian festivals like MAMI Mumbai, Kerala, Bengaluru, and Jaipur. Through VORIQ, he continues to push the boundaries of storytelling and gain global recognition for innovation in AI-driven filmmaking.</p>
               </div>
             </CardContent>
           </Card>
