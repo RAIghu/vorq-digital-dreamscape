@@ -96,45 +96,46 @@ const Index = () => {
                     View Portfolio
                   </Button>
                 </Link>
+                
+                {/* Volume Control - Shows under the button when muted */}
+                {showControls && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={toggleMute}
+                    className="glass-effect text-foreground hover:text-primary transition-all duration-300 border border-primary/30 hover:border-primary/60 animate-fade-in"
+                    style={{ pointerEvents: 'auto' }}
+                  >
+                    <VolumeX size={16} />
+                  </Button>
+                )}
               </div>
             </>
           )}
         </div>
       </div>
 
-      {/* View Portfolio button when unmuted - lower third center */}
+      {/* View Portfolio button when unmuted - bottom right corner */}
       {!isMuted && (
-        <div className="absolute bottom-1/3 left-1/2 transform -translate-x-1/2 z-10">
+        <div className="absolute bottom-8 right-8 z-10 flex flex-col items-end gap-4">
           <Link to="/portfolio">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-4 text-lg animate-glow transition-all duration-300 hover:scale-105">
               View Portfolio
             </Button>
           </Link>
-        </div>
-      )}
-
-      {/* Volume Control - Shows on mouse move */}
-      {showControls && (
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-          <Button
-            variant="ghost"
-            size="lg"
-            onClick={toggleMute}
-            className="glass-effect text-foreground hover:text-primary transition-all duration-300 border border-primary/30 hover:border-primary/60 animate-fade-in"
-            style={{ pointerEvents: 'auto' }}
-          >
-            {isMuted ? (
-              <>
-                <VolumeX size={24} className="mr-2" />
-                <span>Unmute Video</span>
-              </>
-            ) : (
-              <>
-                <Volume2 size={24} className="mr-2" />
-                <span>Mute Video</span>
-              </>
-            )}
-          </Button>
+          
+          {/* Volume Control - Shows under the button when unmuted */}
+          {showControls && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={toggleMute}
+              className="glass-effect text-foreground hover:text-primary transition-all duration-300 border border-primary/30 hover:border-primary/60 animate-fade-in"
+              style={{ pointerEvents: 'auto' }}
+            >
+              <Volume2 size={16} />
+            </Button>
+          )}
         </div>
       )}
 
