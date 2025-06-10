@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
@@ -9,7 +8,8 @@ const Index = () => {
   const [isMuted, setIsMuted] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
   const [showControls, setShowControls] = useState(false);
-  const [videoSrc, setVideoSrc] = useState<string | null>(null);
+  const [videoSrc, setVideoSrc] = useState<string>('/default-background.mp4'); // Default embedded video
+  const [isDefaultVideo, setIsDefaultVideo] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -32,12 +32,19 @@ const Index = () => {
     if (file && file.type.startsWith('video/')) {
       const url = URL.createObjectURL(file);
       setVideoSrc(url);
+      setIsDefaultVideo(false);
       setIsPaused(false);
     }
   };
 
   const triggerFileUpload = () => {
     fileInputRef.current?.click();
+  };
+
+  const resetToDefault = () => {
+    setVideoSrc('/default-background.mp4');
+    setIsDefaultVideo(true);
+    setIsPaused(false);
   };
 
   const toggleMute = () => {
@@ -94,47 +101,29 @@ const Index = () => {
       
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
-        {videoSrc ? (
-          <>
-            <video
-              ref={videoRef}
-              className="w-full h-full object-contain bg-black"
-              autoPlay
-              loop
-              muted={isMuted}
-              onLoadedData={handleVideoLoad}
-              onPlay={() => setIsPaused(false)}
-              onPause={() => setIsPaused(true)}
-            >
-              <source src={videoSrc} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            
-            {/* Overlay that appears/disappears based on mute state */}
-            {isMuted && <div className="absolute inset-0 bg-black/60"></div>}
-          </>
-        ) : (
-          // Placeholder when no video is uploaded
-          <div className="w-full h-full bg-gradient-to-br from-gray-900 via-black to-gray-900 flex items-center justify-center">
-            <div className="text-center">
-              <Upload size={64} className="mx-auto mb-4 text-primary opacity-50" />
-              <p className="text-gray-400 mb-4">Upload a video to get started</p>
-              <Button 
-                onClick={triggerFileUpload}
-                className="bg-primary hover:bg-primary/90 text-black font-semibold pointer-events-auto"
-              >
-                Choose Video File
-              </Button>
-            </div>
-          </div>
-        )}
+        <video
+          ref={videoRef}
+          className="w-full h-full object-contain bg-black"
+          autoPlay
+          loop
+          muted={isMuted}
+          onLoadedData={handleVideoLoad}
+          onPlay={() => setIsPaused(false)}
+          onPause={() => setIsPaused(true)}
+        >
+          <source src={videoSrc} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        
+        {/* Overlay that appears/disappears based on mute state */}
+        {isMuted && <div className="absolute inset-0 bg-black/60"></div>}
       </div>
 
       {/* Hero Content */}
       <div className="relative z-10 min-h-screen flex items-center justify-center">
         <div className="text-center px-6 max-w-4xl mx-auto">
-          {/* Hero text - only show when muted or no video */}
-          {(isMuted || !videoSrc) && (
+          {/* Hero text - only show when muted */}
+          {isMuted && (
             <>
               <h1 className="font-agency font-black text-6xl md:text-8xl lg:text-9xl mb-6 animate-fade-in text-cinematic-gold uppercase tracking-wider">
                 VORIQ
@@ -155,7 +144,7 @@ const Index = () => {
                 </Link>
                 
                 {/* Control buttons - Shows under the button when muted */}
-                {showControls && videoSrc && (
+                {showControls && (
                   <div className="flex gap-2">
                     <Button 
                       variant="ghost" 
@@ -169,17 +158,26 @@ const Index = () => {
                   </div>
                 )}
                 
-                {/* Upload button when no video */}
-                {!videoSrc && (
+                {/* Video controls */}
+                <div className="flex gap-2">
                   <Button 
                     variant="outline" 
                     onClick={triggerFileUpload}
                     className="border-primary text-primary hover:bg-primary hover:text-black pointer-events-auto"
                   >
                     <Upload size={16} className="mr-2" />
-                    Upload Background Video
+                    Change Background Video
                   </Button>
-                )}
+                  {!isDefaultVideo && (
+                    <Button 
+                      variant="outline" 
+                      onClick={resetToDefault}
+                      className="border-primary text-primary hover:bg-primary hover:text-black pointer-events-auto"
+                    >
+                      Reset to Default
+                    </Button>
+                  )}
+                </div>
               </div>
             </>
           )}
@@ -187,7 +185,7 @@ const Index = () => {
       </div>
 
       {/* View Portfolio button when unmuted - positioned at bottom-40 */}
-      {!isMuted && videoSrc && (
+      {!isMuted && (
         <div className="absolute bottom-40 right-8 z-10 flex flex-col items-end gap-4">
           <Link to="/portfolio">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-black font-semibold px-8 py-4 text-lg animate-glow transition-all duration-300 hover:scale-105">
@@ -221,8 +219,8 @@ const Index = () => {
         </div>
       )}
 
-      {/* Scroll Indicator - only show when muted or no video */}
-      {(isMuted || !videoSrc) && (
+      {/* Scroll Indicator - only show when muted */}
+      {isMuted && (
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
           <div className="w-6 h-10 border-2 border-primary rounded-full flex justify-center">
             <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-bounce"></div>
