@@ -27,11 +27,9 @@ const About = () => {
               </div>
               
               <div className="space-y-4 text-gray-300">
-                <p>
-                  Raghu Naik is a visionary filmmaker and AI pioneer who founded VORIQ with the belief that artificial intelligence could revolutionize storytelling without compromising artistic integrity.
-                </p>
-                <p>With over 13 years in film making, working with top film production houses in Mumbai and a background in tech, Raghu bridges the gap between technology and creativity, leading VORIQ to international recognition.</p>
-                <p>His work has been featured at major film festivals worldwide like Cannes -France,  Lift Off festival- England,  Project Odyssey-USA, DUST-USA, Turkeye AI film festival, Czech Republic, MAMI Mumbai, Jaipur, Kerala, Bengaluru film festivals and has earned numerous accolades for innovation in AI-assisted filmmaking.</p>
+                <p>Raghu Naik is a visionary filmmaker and AI storyteller who founded VORIQ to redefine how stories are told through artificial intelligence—without sacrificing creative depth or artistic integrity. With a unique blend of creative instinct and technical expertise, he is at the forefront of a new wave of AI-augmented cinema.</p>
+                <p>With over 13 years in the film industry, Raghu has collaborated with some of India’s leading production houses including Roy Kapur Films, RSVP, Jio Studios, Times Group, and Rakesh Omprakash Mehra Pictures. His ability to bridge technology and narrative has helped bring complex ideas to screen with bold visual imagination.</p>
+                <p>Raghu’s work has been featured at major international festivals such as Cannes (France), Lift-Off Global Network (UK), Project Odyssey (USA), DUST (USA), Turkiye AI Film Festival, and leading Indian festivals like MAMI Mumbai, Kerala, Bengaluru, and Jaipur. Through VORIQ, he continues to push the boundaries of storytelling and gain global recognition for innovation in AI-driven filmmaking.</p>
               </div>
             </CardContent>
           </Card>
