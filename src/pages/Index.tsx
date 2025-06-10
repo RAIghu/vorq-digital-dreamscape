@@ -1,12 +1,12 @@
+
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import { useState, useEffect } from 'react';
-import { VolumeX, Volume2, Play, Pause } from 'lucide-react';
+import { VolumeX, Volume2 } from 'lucide-react';
 
 const Index = () => {
   const [isMuted, setIsMuted] = useState(true);
-  const [isPaused, setIsPaused] = useState(false);
   const [showControls, setShowControls] = useState(false);
 
   useEffect(() => {
@@ -28,11 +28,6 @@ const Index = () => {
     setShowControls(false);
   };
 
-  const togglePlayPause = () => {
-    setIsPaused(!isPaused);
-    setShowControls(false);
-  };
-
   const handleMouseMove = () => {
     setShowControls(true);
   };
@@ -49,7 +44,7 @@ const Index = () => {
       <div className="absolute inset-0 z-0">
         <iframe
           className="w-full h-full object-cover"
-          src={`https://www.youtube.com/embed/2O-a4Hs98yw?autoplay=1&mute=${isMuted ? 1 : 0}&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&loop=1&playlist=2O-a4Hs98yw&start=0&end=0${isPaused ? '&autoplay=0' : ''}`}
+          src={`https://www.youtube.com/embed/2O-a4Hs98yw?autoplay=1&mute=${isMuted ? 1 : 0}&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&loop=1&playlist=2O-a4Hs98yw&start=0&end=0`}
           title="Background Video"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -84,7 +79,7 @@ const Index = () => {
                   </Button>
                 </Link>
                 
-                {/* Control buttons - Shows under the button when muted */}
+                {/* Control button - Shows under the button when muted */}
                 {showControls && (
                   <div className="flex gap-2">
                     <Button 
@@ -113,7 +108,7 @@ const Index = () => {
             </Button>
           </Link>
           
-          {/* Control buttons - Shows under the button when unmuted */}
+          {/* Control button - Shows under the button when unmuted */}
           {showControls && (
             <div className="flex gap-2">
               <Button 
@@ -124,15 +119,6 @@ const Index = () => {
                 style={{ pointerEvents: 'auto' }}
               >
                 <Volume2 size={14} />
-              </Button>
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                onClick={togglePlayPause} 
-                className="glass-effect text-foreground hover:text-primary transition-all duration-300 border border-primary/30 hover:border-primary/60 animate-fade-in h-8 w-8 p-0"
-                style={{ pointerEvents: 'auto' }}
-              >
-                {isPaused ? <Play size={14} /> : <Pause size={14} />}
               </Button>
             </div>
           )}
