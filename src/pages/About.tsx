@@ -1,10 +1,7 @@
-
 import Navigation from '@/components/Navigation';
 import { Card, CardContent } from '@/components/ui/card';
-
 const About = () => {
-  return (
-    <div className="min-h-screen cinematic-gradient">
+  return <div className="min-h-screen cinematic-gradient">
       <Navigation />
       
       <div className="container mx-auto px-6 pt-24 pb-16">
@@ -23,11 +20,7 @@ const About = () => {
             <CardContent className="p-8">
               <div className="text-center mb-8">
                 <div className="w-32 h-32 mx-auto mb-6 relative">
-                  <img 
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
-                    alt="Raghu Naik" 
-                    className="w-full h-full object-cover rounded-full border-2 border-primary"
-                  />
+                  <img alt="Raghu Naik" className="w-full h-full object-cover rounded-full border-2 border-primary" src="/lovable-uploads/f8f7f909-0409-4af0-aa43-96084aff95e7.png" />
                 </div>
                 <h2 className="font-orbitron font-bold text-3xl mb-2 text-white">Raghu Naik</h2>
                 <p className="text-primary text-lg">Founder & Creative Director</p>
@@ -123,8 +116,6 @@ const About = () => {
           </CardContent>
         </Card>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default About;
