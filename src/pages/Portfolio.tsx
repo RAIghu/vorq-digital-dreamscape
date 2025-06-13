@@ -16,7 +16,7 @@ const Portfolio = () => {
       category: 'Ads',
       thumbnail: 'https://img.youtube.com/vi/2O-a4Hs98yw/maxresdefault.jpg',
       duration: '3:15',
-      videoUrl: 'https://www.youtube.com/watch?v=2O-a4Hs98yw',
+      videoUrl: 'https://youtu.be/ri7OgGFYoao',
       description: 'A stunning promotional video showcasing VORIQ brand identity'
     },
     {
