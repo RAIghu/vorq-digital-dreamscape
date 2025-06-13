@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import { useState, useEffect } from 'react';
 import { VolumeX, Volume2, Play, Pause } from 'lucide-react';
+
 const Index = () => {
   const [isMuted, setIsMuted] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
   const [showControls, setShowControls] = useState(false);
+
   useEffect(() => {
     let timeout: NodeJS.Timeout;
     if (showControls) {
@@ -38,6 +40,7 @@ const Index = () => {
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);
   }, []);
+
   const toggleMute = () => {
     setIsMuted(!isMuted);
     const iframe = document.querySelector('#background-video') as HTMLIFrameElement;
@@ -52,6 +55,7 @@ const Index = () => {
     }
     setShowControls(false);
   };
+
   const togglePlayPause = () => {
     const iframe = document.querySelector('#background-video') as HTMLIFrameElement;
     if (iframe && iframe.contentWindow) {
@@ -67,20 +71,33 @@ const Index = () => {
     }
     setShowControls(false);
   };
+
   const handleMouseMove = () => {
     setShowControls(true);
   };
+
   const handleMouseLeave = () => {
     setShowControls(false);
   };
-  return <div className="min-h-screen relative overflow-hidden" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+
+  return (
+    <div className="min-h-screen relative overflow-hidden" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
       <Navigation />
       
       {/* YouTube Video Background */}
       <div className="absolute inset-0 z-0">
-        <iframe id="background-video" className="w-full h-full object-cover" src={`https://www.youtube.com/embed/2O-a4Hs98yw?autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=2O-a4Hs98yw&controls=0&showinfo=0&rel=0&modestbranding=1&start=0&enablejsapi=1&origin=${window.location.origin}`} title="VORIQ Background Video" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen style={{
-        pointerEvents: 'none'
-      }} />
+        <iframe 
+          id="background-video" 
+          className="w-full h-full object-cover" 
+          src={`https://www.youtube.com/embed/saBZ7GhtJFw?autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=saBZ7GhtJFw&controls=0&showinfo=0&rel=0&modestbranding=1&start=0&enablejsapi=1&origin=${window.location.origin}`} 
+          title="VORIQ Background Video" 
+          frameBorder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowFullScreen 
+          style={{
+            pointerEvents: 'none'
+          }} 
+        />
         
         {/* Overlay that appears/disappears based on mute state */}
         {isMuted && <div className="absolute inset-0 bg-black/60"></div>}
@@ -149,6 +166,8 @@ const Index = () => {
             <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-bounce"></div>
           </div>
         </div>}
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
