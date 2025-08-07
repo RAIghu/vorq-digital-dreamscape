@@ -61,7 +61,7 @@ const Portfolio = () => {
       category: 'Music Videos',
       thumbnail: 'https://img.youtube.com/vi/1nbsp7ptqik/maxresdefault.jpg',
       duration: '4:20',
-      videoUrl: 'https://youtu.be/1nbsp7ptqik',
+      videoUrl: 'https://youtu.be/Jn90E3pDH74',
       description: 'Innovative music video with cutting-edge AI animation techniques'
     }
   ];
