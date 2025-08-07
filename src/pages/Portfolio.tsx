@@ -63,6 +63,33 @@ const Portfolio = () => {
       duration: '4:20',
       videoUrl: 'https://youtu.be/Jn90E3pDH74',
       description: 'Innovative music video with cutting-edge AI animation techniques'
+    },
+    {
+      id: 7,
+      title: 'When You Love Your Car',
+      category: 'Ads',
+      thumbnail: 'https://img.youtube.com/vi/5EdZQ_TOWE0/maxresdefault.jpg',
+      duration: '1:32',
+      videoUrl: 'https://www.youtube.com/watch?v=5EdZQ_TOWE0',
+      description: 'Spec ad for a luxury car. Check out how car shots can be done using AI.'
+    },
+    {
+      id: 8,
+      title: 'Pizza Bela – So Cheesy',
+      category: 'Ads',
+      thumbnail: 'https://img.youtube.com/vi/eHRGDflx7T4/maxresdefault.jpg',
+      duration: '0:58',
+      videoUrl: 'https://youtu.be/eHRGDflx7T4?si=Fh6x89jXQ8GDCwqQ',
+      description: 'Ad for Pizza Bella. Watch how a bite of pizza launches a full blown Italian Opera.'
+    },
+    {
+      id: 9,
+      title: 'India\'s New Jugalbandi',
+      category: 'Ads',
+      thumbnail: 'https://img.youtube.com/vi/415o_mG8WIw/maxresdefault.jpg',
+      duration: '0:34',
+      videoUrl: 'https://youtu.be/415o_mG8WIw?si=grPyX6OL2vpkA-jw',
+      description: 'AI is very useful to create pan India ads. Check this ad created for a network that wants to reach all of India.'
     }
   ];
 
